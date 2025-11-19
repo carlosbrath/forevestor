@@ -1,0 +1,95 @@
+body {
+  background-color: #0c0c0c;
+  color: white;
+  min-height: 100vh;
+}
+a {
+  text-decoration: none;
+}
+
+/* Header Glass Background */
+.navbar-custom {
+  backdrop-filter: blur(25px);
+  background: rgba(30, 30, 30, 0.8) !important;
+  border-radius: 36px;
+  transition: 0.3s ease;
+}
+
+/* Hover Dropdown */
+.dropdown-menu {
+  background: #18191b !important;
+  border: 1px solid #555 !important;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+/* Dropdown visible on hover */
+.nav-item:hover .dropdown-menu {
+  display: block;
+  margin-top: 10px;
+}
+
+/* Hover Links */
+.dropdown-menu a:hover,
+.nav-link:hover {
+  color: #00b899 !important;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 0px 20px;
+  overflow: hidden;
+  background-color: #001a1e;
+}
+.hero-section .blank-dv {
+  height: 70px;
+}
+.hero-section .star-card {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: rgb(22, 22, 22);
+  padding: 8px 12px;
+  border-radius: 24px;
+  width: fit-content;
+}
+.hero-image-section {
+  width: 100%;
+  max-width: 980px;
+  margin: 0px auto;
+  position: relative;
+}
+.hero-img-1{
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    height: 100%;
+    object-fit: contain;
+}
+.hero-img-1 img {
+    width: 360px;
+    height: 520px;
+}
+.hero-img-2 {
+  position: absolute;
+  width: 100%;
+   max-width: 360px;
+  height: 100%;
+  object-fit: contain;
+}
+.hero-img-2 img {
+   width: 360px;
+    height: 520px;
+}
+
+/* Mobile dropdown fix */
+@media (max-width: 991px) {
+  .nav-item:hover .dropdown-menu {
+    display: none;
+  }
+}
