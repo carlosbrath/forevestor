@@ -13,10 +13,30 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            // Basic Information
+            $table->string('full_name');
             $table->string('email')->unique();
+            $table->string('phone')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+
+            // Personal Information
+            $table->date('date_of_birth');
+            $table->text('address');
+            $table->string('city');
+            $table->string('country');
+
+            // CNIC Information
+            $table->string('cnic_number')->unique();
+            $table->string('cnic_front_image')->nullable();
+            $table->string('cnic_back_image')->nullable();
+
+            // Referral & Status
+            $table->string('referral_code')->nullable();
+            $table->boolean('terms_agreed')->default(false);
+            $table->enum('status', ['pending', 'active', 'suspended', 'rejected'])->default('pending');
+
+            // Standard columns
             $table->rememberToken();
             $table->timestamps();
         });
