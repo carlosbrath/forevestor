@@ -7,20 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {{-- Dynamic Meta Tags --}}
-    
+
+    <title>{{ $title ?? 'Forevestor' }}</title>
+    <meta name="description" content="{{ $meta_description ?? 'Forevestor' }}">
 
 
 
     <link rel="icon" href="{{ asset('/assets/images/logo.png') }}" type="image/png">
     @include('include.head-public')
-    @yield('style')
+    @stack('style')
 </head>
 
 <body>
     @include('include.navbar-public')
-    <div class="print-area">
-        @yield('content')
-    </div>
+    @yield('content')
     @include('include.footer-public')
     @include('include.foot-public')
     @stack('scripts')
