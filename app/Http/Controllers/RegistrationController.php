@@ -30,8 +30,8 @@ class RegistrationController extends Controller
             'password' => 'required|string|min:8|confirmed',
             'password_confirmation' => 'required|string|min:8',
             'cnic_number' => 'required|string|max:20|unique:users,cnic_number',
-            'cnic_front_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120', // 5MB
-            'cnic_back_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120', // 5MB
+            // 'cnic_front_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120', // 5MB
+            // 'cnic_back_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120', // 5MB
             'date_of_birth' => 'required|date|before:today',
             'address' => 'required|string|max:255',
             'city' => 'required|string|max:100',
@@ -43,8 +43,8 @@ class RegistrationController extends Controller
             'phone.unique' => 'This phone number is already registered.',
             'cnic_number.unique' => 'This CNIC number is already registered.',
             'password.confirmed' => 'Passwords do not match.',
-            'cnic_front_image.required' => 'CNIC front image is required.',
-            'cnic_back_image.required' => 'CNIC back image is required.',
+            // 'cnic_front_image.required' => 'CNIC front image is required.',
+            // 'cnic_back_image.required' => 'CNIC back image is required.',
             'terms_agreed.required' => 'You must accept the terms and conditions.',
         ]);
 
@@ -60,13 +60,13 @@ class RegistrationController extends Controller
             $cnicFrontPath = null;
             $cnicBackPath = null;
 
-            if ($request->hasFile('cnic_front_image')) {
-                $cnicFrontPath = $request->file('cnic_front_image')->store('cnic/front', 'public');
-            }
+            // if ($request->hasFile('cnic_front_image')) {
+            //     $cnicFrontPath = $request->file('cnic_front_image')->store('cnic/front', 'public');
+            // }
 
-            if ($request->hasFile('cnic_back_image')) {
-                $cnicBackPath = $request->file('cnic_back_image')->store('cnic/back', 'public');
-            }
+            // if ($request->hasFile('cnic_back_image')) {
+            //     $cnicBackPath = $request->file('cnic_back_image')->store('cnic/back', 'public');
+            // }
 
             // Create new user
             $user = new \App\Models\User();

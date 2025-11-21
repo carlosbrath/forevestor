@@ -1,6 +1,6 @@
   <header class="position-fixed top-0 start-0 w-100 z-3 d-flex justify-content-center p-3">
       <nav class="navbar navbar-expand-lg navbar-light navbar-custom w-100 px-4" style="max-width: 1100px">
-          <a class="navbar-brand d-flex align-items-center" href="#">
+          <a class="navbar-brand d-flex align-items-center" href="{{route('home')}}">
               <img src="{{ asset('/assets/images/logo.png') }}" width="35" height="35" alt="Forevestor Logo" />
               <span class="ms-2 fw-bold" style="color: var(--color-text-primary); font-size: 1.1rem;">Forevestor</span>
           </a>
@@ -41,7 +41,7 @@
                   <li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
                   <li class="nav-item ms-2">
-                      <a href="#" class="btn btn-sm btn-primary px-3"
+                      <a href="{{route('login')}}" class="btn btn-sm btn-primary px-3"
                           style="background-color: var(--color-primary); border-color: var(--color-primary); color: white;">Sign
                           In</a>
                   </li>
