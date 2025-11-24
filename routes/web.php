@@ -5,6 +5,7 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\InvestmentController;
 
 // Public routes - no authentication required
 Route::middleware('guest')->group(function () {
@@ -24,6 +25,9 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     // Dashboard routes
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Investment resource routes
+    Route::resource('investments', InvestmentController::class);
 
     // Logout route
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

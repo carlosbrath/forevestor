@@ -70,4 +70,44 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
+
+    /**
+     * Get all investments for this user
+     */
+    public function investments()
+    {
+        return $this->hasMany(Investment::class);
+    }
+
+    /**
+     * Get all profit histories for this user
+     */
+    public function profitHistories()
+    {
+        return $this->hasMany(ProfitHistory::class);
+    }
+
+    /**
+     * Get all withdrawals for this user
+     */
+    public function withdrawals()
+    {
+        return $this->hasMany(Withdrawal::class);
+    }
+
+    /**
+     * Get all transactions for this user
+     */
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    /**
+     * Get the wallet for this user
+     */
+    public function wallet()
+    {
+        return $this->hasOne(Wallet::class);
+    }
 }

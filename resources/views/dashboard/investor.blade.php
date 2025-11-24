@@ -9,6 +9,13 @@
                 <p>Here's what's happening with your investments today</p>
             </div>
             <div class="user-profile">
+                <a href="{{ route('investments.create') }}" class="invest-now-btn">
+                    <span class="invest-btn-border"></span>
+                    <span class="invest-btn-text">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                        Invest Now
+                    </span>
+                </a>
                 <button class="notification-btn">
                     <i class="bi bi-bell"></i>
                     <span class="notification-badge">3</span>
