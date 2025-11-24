@@ -55,6 +55,9 @@ class LoginController extends Controller
                 // Authentication successful
                 $request->session()->regenerate();
 
+                // Get authenticated user
+                $user = Auth::user();
+
                 return redirect()->intended(route('dashboard'))
                     ->with('success', 'Welcome back! You have been logged in successfully.');
             }
@@ -80,6 +83,11 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
+        $user = Auth::user();
+
+        // Revoke all Sanctum tokens for the user
+      
+
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();

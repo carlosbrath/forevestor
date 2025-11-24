@@ -18,6 +18,6 @@ class DashboardController extends Controller
         }
 
         $title = 'Admin Dashboard - Forevestor';
-        return view('dashboard.clients', compact('title'));
+        return view('dashboard.investor', compact('title'));
     }
 }

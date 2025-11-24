@@ -6,17 +6,25 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 
-// Landing page is now the default home route
-Route::get('/', [PublicController::class, 'home'])->name('home');
+// Public routes - no authentication required
+Route::middleware('guest')->group(function () {
+    // Landing page
+    Route::get('/', [PublicController::class, 'home'])->name('home');
 
-// Registration routes
-Route::get('/register', [RegistrationController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [RegistrationController::class, 'register'])->name('register.submit');
+    // Registration routes
+    Route::get('/register', [RegistrationController::class, 'showRegistrationForm'])->name('register');
+    Route::post('/register', [RegistrationController::class, 'register'])->name('register.submit');
 
-// Login routes
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    // Login routes
+    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
+});
 
-// Dashboard routes
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+// Protected routes - authentication required
+Route::middleware('auth')->group(function () {
+    // Dashboard routes
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Logout route
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+});
