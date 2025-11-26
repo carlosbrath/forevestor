@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class DashboardController extends Controller
 {
     /**
-     * Show the dashboard
+     * Show the dashboard based on user role
      */
     public function index()
     {
@@ -17,7 +17,15 @@ class DashboardController extends Controller
             return redirect()->route('login');
         }
 
-        $title = 'Admin Dashboard - Forevestor';
+        $user = auth()->user();
+        $userRole = $user->role?->name;
+
+        // Route to appropriate dashboard based on role
+        if (in_array($userRole, ['super-admin', 'admin', 'moderator'])) {
+            return redirect()->route('admin.dashboard');
+        }
+
+        $title = 'Dashboard - Forevestor';
         return view('dashboard.investor', compact('title'));
     }
 }

@@ -47,4 +47,13 @@ class Investment extends Model
     {
         return $this->hasMany(Transaction::class, 'related_id');
     }
+
+    public function getPaymentProofUrlAttribute(): ?string
+    {
+        if (!$this->payment_proof) {
+            return null;
+        }
+
+        return \Illuminate\Support\Facades\Storage::disk('public')->url($this->payment_proof);
+    }
 }

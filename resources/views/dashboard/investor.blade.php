@@ -16,10 +16,7 @@
                         Invest Now
                     </span>
                 </a>
-                <button class="notification-btn">
-                    <i class="bi bi-bell"></i>
-                    <span class="notification-badge">3</span>
-                </button>
+                
                 <div class="user-avatar">JD</div>
             </div>
         </div>

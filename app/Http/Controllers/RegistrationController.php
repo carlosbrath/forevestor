@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Role;
 
 class RegistrationController extends Controller
 {
@@ -68,6 +69,9 @@ class RegistrationController extends Controller
             //     $cnicBackPath = $request->file('cnic_back_image')->store('cnic/back', 'public');
             // }
 
+            // Get the investor role
+            $investorRole = Role::where('name', 'investor')->first();
+
             // Create new user
             $user = new \App\Models\User();
             $user->full_name = $request->full_name;
@@ -85,6 +89,7 @@ class RegistrationController extends Controller
             $user->terms_agreed = true;
             $user->email_verified_at = null; // Email not verified yet
             $user->status = 'pending'; // Account pending verification
+            $user->role_id = $investorRole?->id; // Assign investor role
             $user->save();
 
             // Redirect to login with success message
