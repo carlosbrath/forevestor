@@ -40,7 +40,7 @@
 
 /* LOGOS */
 .partners-track img {
-    height: 45px;
+    height: 60px;
     background: var(--color-bg-tertiary);
     padding: var(--spacing-sm);
     border-radius: var(--radius-md);
@@ -201,32 +201,81 @@
             <div class="col-md-6 col-lg-4">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="bi bi-lock"></i>
+                        <i class="bi bi-cash-stack"></i>
                     </div>
-                    <h3 class="feature-title">Bank-level Security</h3>
-                    <p class="feature-desc">Your data is protected with enterprise-grade encryption</p>
+                    <h3 class="feature-title">Zero Withdrawal Fees</h3>
+                    <p class="feature-desc">Withdraw your earnings anytime without any hidden charges.</p>
                 </div>
             </div>
             <!-- Feature 8 -->
             <div class="col-md-6 col-lg-4">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="bi bi-lock"></i>
+                        <i class="bi bi-layout-text-sidebar-reverse"></i>
                     </div>
-                    <h3 class="feature-title">Bank-level Security</h3>
-                    <p class="feature-desc">Your data is protected with enterprise-grade encryption</p>
+                    <h3 class="feature-title">Flexible Investment Plans</h3>
+                    <p class="feature-desc">Choose plans that suit your financial goals, whether short-term or long-term
+                    </p>
                 </div>
             </div>
             <!-- Feature 9 -->
             <div class="col-md-6 col-lg-4">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="bi bi-lock"></i>
+                        <i class="bi bi-speedometer2"></i>
                     </div>
-                    <h3 class="feature-title">Bank-level Security</h3>
-                    <p class="feature-desc">Your data is protected with enterprise-grade encryption</p>
+                    <h3 class="feature-title">Instant Fund Access</h3>
+                    <p class="feature-desc">Access your invested funds or profits quickly whenever you need them.</p>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+<!-- IN PARTNERSHIP WITH SECTION -->
+<section class="partners-area">
+    <h3 class="partners-heading">In Partnership with</h3>
+
+    <div class="partners-slider">
+        <div class="partners-track">
+
+            <!-- Original Logos -->
+            <img src="{{ asset('/assets/images/1.png') }}" alt="logo 1">
+            <img src="{{ asset('/assets/images/2.png') }}" alt="logo 2">
+            <img src="{{ asset('/assets/images/3.webp') }}" alt="logo 3">
+            <img src="{{ asset('/assets/images/4.jpg') }}" alt="logo 4">
+            <img src="{{ asset('/assets/images/5.png') }}" alt="logo 5">
+            <img src="{{ asset('/assets/images/6.webp') }}" alt="logo 6">
+            <img src="{{ asset('/assets/images/7.webp') }}" alt="logo 7">
+            <img src="{{ asset('/assets/images/8.jpg') }}" alt="logo 8">
+            <img src="{{ asset('/assets/images/10.webp') }}" alt="logo 10">
+            <img src="{{ asset('/assets/images/11.webp') }}" alt="logo 11">
+            <img src="{{ asset('/assets/images/12.webp') }}" alt="logo 1">
+            <img src="{{ asset('/assets/images/13.jpg') }}" alt="logo 2">
+            <img src="{{ asset('/assets/images/14.webp') }}" alt="logo 3">
+            <img src="{{ asset('/assets/images/15.png') }}" alt="logo 4">
+            <img src="{{ asset('/assets/images/16.jpg') }}" alt="logo 5">
+            <img src="{{ asset('/assets/images/17.png') }}" alt="logo 6">
+            <img src="{{ asset('/assets/images/18.webp') }}" alt="logo 7">
+            <img src="{{ asset('/assets/images/19.png') }}" alt="logo 8">
+            <img src="{{ asset('/assets/images/1.png') }}" alt="logo 1">
+            <img src="{{ asset('/assets/images/2.png') }}" alt="logo 2">
+            <img src="{{ asset('/assets/images/3.webp') }}" alt="logo 3">
+            <img src="{{ asset('/assets/images/4.jpg') }}" alt="logo 4">
+            <img src="{{ asset('/assets/images/5.png') }}" alt="logo 5">
+            <img src="{{ asset('/assets/images/6.webp') }}" alt="logo 6">
+            <img src="{{ asset('/assets/images/7.webp') }}" alt="logo 7">
+            <img src="{{ asset('/assets/images/8.jpg') }}" alt="logo 8">
+            <img src="{{ asset('/assets/images/10.webp') }}" alt="logo 10">
+            <img src="{{ asset('/assets/images/11.webp') }}" alt="logo 11">
+            <img src="{{ asset('/assets/images/12.webp') }}" alt="logo 1">
+            <img src="{{ asset('/assets/images/13.jpg') }}" alt="logo 2">
+            <img src="{{ asset('/assets/images/14.webp') }}" alt="logo 3">
+            <img src="{{ asset('/assets/images/15.png') }}" alt="logo 4">
+            <img src="{{ asset('/assets/images/16.jpg') }}" alt="logo 5">
+            <img src="{{ asset('/assets/images/17.png') }}" alt="logo 6">
+            <img src="{{ asset('/assets/images/18.webp') }}" alt="logo 7">
+            <img src="{{ asset('/assets/images/19.png') }}" alt="logo 8">
+
         </div>
     </div>
 </section>
@@ -279,39 +328,7 @@
         </div>
     </div>
 </section>
-<!-- IN PARTNERSHIP WITH SECTION -->
-<section class="partners-area">
-    <h3 class="partners-heading">In Partnership with</h3>
 
-    <div class="partners-slider">
-        <div class="partners-track">
-
-            <!-- Original Logos -->
-            <img src="{{ asset('/assets/images/1.png') }}" alt="logo 1">
-            <img src="{{ asset('/assets/images/2.png') }}" alt="logo 2">
-            <img src="{{ asset('/assets/images/3.webp') }}" alt="logo 3">
-            <img src="{{ asset('/assets/images/4.jpg') }}" alt="logo 4">
-            <img src="{{ asset('/assets/images/5.png') }}" alt="logo 5">
-            <img src="{{ asset('/assets/images/6.webp') }}" alt="logo 6">
-            <img src="{{ asset('/assets/images/7.webp') }}" alt="logo 7">
-            <img src="{{ asset('/assets/images/8.jpg') }}" alt="logo 8">
-            <img src="{{ asset('/assets/images/10.webp') }}" alt="logo 10">
-            <img src="{{ asset('/assets/images/11.webp') }}" alt="logo 11">
-            <img src="{{ asset('/assets/images/1.png') }}" alt="logo 1">
-            <img src="{{ asset('/assets/images/2.png') }}" alt="logo 2">
-            <img src="{{ asset('/assets/images/3.webp') }}" alt="logo 3">
-            <img src="{{ asset('/assets/images/4.jpg') }}" alt="logo 4">
-            <img src="{{ asset('/assets/images/5.png') }}" alt="logo 5">
-            <img src="{{ asset('/assets/images/6.webp') }}" alt="logo 6">
-            <img src="{{ asset('/assets/images/7.webp') }}" alt="logo 7">
-            <img src="{{ asset('/assets/images/8.jpg') }}" alt="logo 8">
-            <img src="{{ asset('/assets/images/10.webp') }}" alt="logo 10">
-            <img src="{{ asset('/assets/images/11.webp') }}" alt="logo 11">
-
-
-        </div>
-    </div>
-</section>
 
 <!-- STATS SECTION -->
 <section class=" stats-section">
@@ -351,7 +368,6 @@
         </div>
     </div>
 </section>
-
 <!-- TESTIMONIALS SECTION -->
 <section class="testimonials-section">
     <div class="container-lg">
