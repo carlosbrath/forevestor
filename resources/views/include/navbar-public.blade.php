@@ -13,8 +13,8 @@
           <div id="navMenu" class="collapse navbar-collapse justify-content-end">
               <ul class="navbar-nav align-items-center gap-3">
                   <!-- About -->
-                  <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#">investments plans</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{ route('plans') }}">Investment Plans</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">Account</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">Help</a></li>

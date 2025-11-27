@@ -625,8 +625,31 @@ a {
 .testimonials-section {
     padding: var(--spacing-5xl) var(--spacing-lg);
     background-color: var(--color-bg-primary);
+    overflow: hidden;
 }
 
+/* Testimonials Slider Container */
+.testimonials-slider {
+    overflow: hidden;
+    width: 100%;
+    padding: var(--spacing-2xl) 0;
+    position: relative;
+}
+
+/* Testimonials Track */
+.testimonials-track {
+    display: flex;
+    gap: var(--spacing-2xl);
+    animation: testimonials-scroll 30s linear infinite;
+    width: fit-content;
+}
+
+/* Pause animation on hover */
+.testimonials-track:hover {
+    animation-play-state: paused;
+}
+
+/* Testimonial Card */
 .testimonial-card {
     background: linear-gradient(
         135deg,
@@ -636,9 +659,14 @@ a {
     border: 1px solid var(--color-primary-opacity-10);
     border-radius: var(--radius-md);
     padding: var(--spacing-2xl);
-    height: 100%;
     transition: var(--transition-all);
     backdrop-filter: blur(var(--blur-sm));
+    flex: 0 0 calc(33.333% - var(--spacing-2xl));
+    min-width: 350px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .testimonial-card:hover {
@@ -751,6 +779,88 @@ a {
     box-shadow: var(--shadow-lg);
 }
 
+/* ============================================
+   12. Partner Section SECTION
+   ============================================ */
+
+.partners-area {
+    background: var(--color-bg-secondary);
+    text-align: center;
+
+    padding-left: 200px;
+    padding-right: 200px;
+
+    border-top: 10px solid var(--color-border);
+    border-bottom: 10px solid var(--color-border);
+}
+.partners-heading {
+    font-size: var(--fs-4xl);
+    font-weight: var(--fw-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-lg);
+}
+.partners-slider {
+    overflow: hidden;
+    width: 100%;
+    padding: var(--spacing-md) 0;
+}
+.partners-track {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3xl);
+    animation: scroll-left 20s linear infinite;
+}
+
+.partners-track img {
+    height: 60px;
+    background: var(--color-bg-tertiary);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    opacity: 0.9;
+    transition: var(--transition-normal);
+}
+.partners-track img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* ANIMATION */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Testimonials Scroll Animation */
+@keyframes testimonials-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-66.666% - var(--spacing-2xl)));
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .partners-track img {
+        height: 35px;
+    }
+
+    /* CONTAINER */
+    .partners-area {
+        background: var(--color-bg-secondary);
+        text-align: center;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
 /* ============================================
    12. FOOTER SECTION
    ============================================ */
@@ -1030,6 +1140,12 @@ a {
 
     .testimonial-card {
         padding: var(--spacing-xl);
+        min-width: 280px;
+        max-width: 100%;
+    }
+
+    .testimonials-track {
+        gap: var(--spacing-lg);
     }
 
     .cta-title {
@@ -1099,6 +1215,10 @@ a {
 
     .stat-card {
         padding: var(--spacing-2xl) var(--spacing-xl);
+    }
+
+    .testimonial-card {
+        min-width: 250px;
     }
 
     .cta-section .btn {

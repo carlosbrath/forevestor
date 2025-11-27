@@ -13,6 +13,12 @@ Route::middleware('guest')->group(function () {
     // Landing page
     Route::get('/', [PublicController::class, 'home'])->name('home');
 
+    // About Us page
+    Route::get('/about', [PublicController::class, 'about'])->name('about');
+
+    // Investment Plans page
+    Route::get('/plans', [PublicController::class, 'plans'])->name('plans');
+
     // Registration routes
     Route::get('/register', [RegistrationController::class, 'showRegistrationForm'])->name('register');
     Route::post('/register', [RegistrationController::class, 'register'])->name('register.submit');

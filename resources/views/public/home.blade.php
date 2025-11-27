@@ -2,85 +2,7 @@
 @section('title', 'Landing')
 @section('meta_description', 'Landing page')
 @section('content')
-<style>
-.partners-area {
-    background: var(--color-bg-secondary);
-    text-align: center;
 
-    padding-left: 200px;
-    padding-right: 200px;
-
-    border-top: 10px solid var(--color-border);
-    border-bottom: 10px solid var(--color-border);
-
-}
-
-/* HEADING */
-.partners-heading {
-    font-size: var(--fs-4xl);
-    font-weight: var(--fw-bold);
-    color: var(--color-text-primary);
-    margin-bottom: var(--spacing-lg);
-}
-
-/* SLIDER WRAPPER */
-.partners-slider {
-    overflow: hidden;
-    width: 100%;
-    padding: var(--spacing-md) 0;
-}
-
-/* TRACK */
-.partners-track {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-3xl);
-    animation: scroll-left 20s linear infinite;
-}
-
-/* LOGOS */
-.partners-track img {
-    height: 60px;
-    background: var(--color-bg-tertiary);
-    padding: var(--spacing-sm);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    opacity: 0.9;
-    transition: var(--transition-normal);
-}
-
-/* Hover Effect */
-.partners-track img:hover {
-    opacity: 1;
-    transform: scale(1.05);
-}
-
-/* ANIMATION */
-@keyframes scroll-left {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .partners-track img {
-        height: 35px;
-    }
-
-    /* CONTAINER */
-    .partners-area {
-        background: var(--color-bg-secondary);
-        text-align: center;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-}
-</style>
 <!-- HERO SECTION -->
 <section id="heroSection" class="hero-section d-flex">
     <div class="w-100 blank-dv"></div>
@@ -374,9 +296,9 @@
             <p class="section-subtitle">Real stories from investors like you</p>
         </div>
 
-        <div class="row g-4">
-            <!-- Testimonial 1 -->
-            <div class="col-md-6 col-lg-4">
+        <div class="testimonials-slider">
+            <div class="testimonials-track">
+                <!-- Testimonial 1 -->
                 <div class="testimonial-card">
                     <div class="stars">
                         <i class="bi bi-star-fill"></i>
@@ -386,20 +308,17 @@
                         <i class="bi bi-star-fill"></i>
                     </div>
                     <p class="testimonial-text">"I started with ₹10,000 and within 3 months, my profits
-                        exceeded my
-                        initial investment. Forevestor is a game-changer!"</p>
+                        exceeded my initial investment. Forevestor is a game-changer!"</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">AR</div>
+                        <div class="author-avatar">AS</div>
                         <div>
                             <div class="author-name">Amit Sharma</div>
                             <div class="author-title">Software Engineer</div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Testimonial 2 -->
-            <div class="col-md-6 col-lg-4">
+                <!-- Testimonial 2 -->
                 <div class="testimonial-card">
                     <div class="stars">
                         <i class="bi bi-star-fill"></i>
@@ -409,20 +328,17 @@
                         <i class="bi bi-star-fill"></i>
                     </div>
                     <p class="testimonial-text">"The verification process was smooth and the customer
-                        support is
-                        amazing. I feel confident with my investments here."</p>
+                        support is amazing. I feel confident with my investments here."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">PR</div>
+                        <div class="author-avatar">PV</div>
                         <div>
                             <div class="author-name">Priya Verma</div>
                             <div class="author-title">Business Owner</div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Testimonial 3 -->
-            <div class="col-md-6 col-lg-4">
+                <!-- Testimonial 3 -->
                 <div class="testimonial-card">
                     <div class="stars">
                         <i class="bi bi-star-fill"></i>
@@ -432,8 +348,128 @@
                         <i class="bi bi-star-fill"></i>
                     </div>
                     <p class="testimonial-text">"Transparent, reliable, and consistent. The upto 15% Monthly
-                        profit is
-                        exactly what I needed to grow my portfolio."</p>
+                        profit is exactly what I needed to grow my portfolio."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RK</div>
+                        <div>
+                            <div class="author-name">Rajesh Kumar</div>
+                            <div class="author-title">Entrepreneur</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="testimonial-text">"Best investment platform I've used! The monthly returns are
+                        consistent and the dashboard makes tracking so easy."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SK</div>
+                        <div>
+                            <div class="author-name">Sneha Kapoor</div>
+                            <div class="author-title">Marketing Manager</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="testimonial-text">"I've been investing for 6 months now and couldn't be happier.
+                        The team is professional and withdrawal process is seamless."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">VG</div>
+                        <div>
+                            <div class="author-name">Vikram Gupta</div>
+                            <div class="author-title">Freelance Designer</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="testimonial-text">"Finally found a platform I can trust! The security measures
+                        and transparent processes give me peace of mind."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MP</div>
+                        <div>
+                            <div class="author-name">Meera Patel</div>
+                            <div class="author-title">Teacher</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate testimonials for seamless loop -->
+                <!-- Testimonial 1 (duplicate) -->
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="testimonial-text">"I started with ₹10,000 and within 3 months, my profits
+                        exceeded my initial investment. Forevestor is a game-changer!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AS</div>
+                        <div>
+                            <div class="author-name">Amit Sharma</div>
+                            <div class="author-title">Software Engineer</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 (duplicate) -->
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="testimonial-text">"The verification process was smooth and the customer
+                        support is amazing. I feel confident with my investments here."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PV</div>
+                        <div>
+                            <div class="author-name">Priya Verma</div>
+                            <div class="author-title">Business Owner</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 (duplicate) -->
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="testimonial-text">"Transparent, reliable, and consistent. The upto 15% Monthly
+                        profit is exactly what I needed to grow my portfolio."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">RK</div>
                         <div>

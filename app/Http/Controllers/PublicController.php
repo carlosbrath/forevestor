@@ -22,4 +22,16 @@ class PublicController extends Controller
         $title = 'Home';
         return view('public.home', compact('title'));
     }
+
+    function about()
+    {
+        $title = 'About Us';
+        return view('public.about', compact('title'));
+    }
+
+    function plans()
+    {
+        $title = 'Investment Plans';
+        return view('public.plans', compact('title'));
+    }
 }

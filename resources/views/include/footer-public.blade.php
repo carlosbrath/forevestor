@@ -80,7 +80,7 @@
         <div class="footer-bottom">
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="footer-copyright">&copy; 2024 Forevestor. All rights reserved. | Designed with passion for
+                    <p class="footer-copyright">&copy; 2025 Forevestor. All rights reserved. | Designed with passion for
                         investors</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
