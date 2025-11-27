@@ -13,7 +13,7 @@
 
 
 
-    <link rel="icon" href="{{ asset('/assets/images/logo.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('/assets/images/favicon.png') }}" type="image/png">
     @include('include.head-public')
     @stack('style')
 </head>

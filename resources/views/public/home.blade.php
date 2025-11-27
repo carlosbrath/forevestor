@@ -112,12 +112,10 @@
 
     <div class="d-flex flex-column align-items-center hero-image-section">
         <div class="hero-img-1">
-            <img src="{{ asset('/assets/images/hero-image-desktop-v2.webp')}}" alt="Investment Dashboard Preview"
-                loading="lazy" />
+            <img src="{{ asset('/assets/images/hero.png')}}" alt="Investment Dashboard Preview" loading="lazy" />
         </div>
         <div class="hero-img-2">
-            <img src="{{ asset('/assets/images/hero-image-mobile-v2.webp')}}" alt="Investment Dashboard Preview"
-                loading="lazy" />
+            <img src="{{ asset('/assets/images/hero.png')}}" alt="Investment Dashboard Preview" loading="lazy" />
         </div>
     </div>
 </section>

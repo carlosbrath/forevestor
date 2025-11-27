@@ -4,9 +4,10 @@
             <!-- Brand Section -->
             <div class="col-md-6 col-lg-3">
                 <div class="footer-brand">
-                    <img src="{{ asset('/assets/images/logo.png') }}" alt="Forevestor Logo" class="footer-logo" />
+                    <img src="{{ asset('/assets/images/favicon.png') }}" alt="Forevestor Logo" class="footer-logo" />
                     <h5>Forevestor</h5>
-                    <p class="footer-desc">Your trusted investment platform for financial growth and wealth building.</p>
+                    <p class="footer-desc">Your trusted investment platform for financial growth and wealth building.
+                    </p>
                     <div class="social-links">
                         <a href="#" class="social-link" title="Facebook"><i class="bi bi-facebook"></i></a>
                         <a href="#" class="social-link" title="Twitter"><i class="bi bi-twitter"></i></a>
@@ -79,7 +80,8 @@
         <div class="footer-bottom">
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="footer-copyright">&copy; 2024 Forevestor. All rights reserved. | Designed with passion for investors</p>
+                    <p class="footer-copyright">&copy; 2024 Forevestor. All rights reserved. | Designed with passion for
+                        investors</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="footer-badges">

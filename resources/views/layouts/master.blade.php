@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {{-- Designed And Developed By Ahsan Danish --}}
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,13 +13,13 @@
 
 
 
-    <link rel="icon" href="{{ asset('/assets/images/logo.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('/assets/images/favicon.png') }}" type="image/png">
     @include('include.head')
     @stack('style')
 </head>
 
 <body>
-      <!-- Mobile Menu Toggle -->
+    <!-- Mobile Menu Toggle -->
     <button class="menu-toggle" id="menuToggle">
         <i class="bi bi-list"></i>
     </button>

@@ -1,7 +1,7 @@
   <header class="position-fixed top-0 start-0 w-100 z-3 d-flex justify-content-center p-3">
       <nav class="navbar navbar-expand-lg navbar-light navbar-custom w-100 px-4" style="max-width: 1100px">
           <a class="navbar-brand d-flex align-items-center" href="{{route('home')}}">
-              <img src="{{ asset('/assets/images/logo.png') }}" width="35" height="35" alt="Forevestor Logo" />
+              <img src="{{ asset('/assets/images/favicon.png') }}" width="60" height="40" alt="Forevestor Logo" />
               <span class="ms-2 fw-bold" style="color: var(--color-text-primary); font-size: 1.1rem;">Forevestor</span>
           </a>
 
