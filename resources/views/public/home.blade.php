@@ -322,7 +322,7 @@
             <div class="col-lg-6">
                 <div class="steps-image">
                     <img src="{{ asset('/assets/images/HOWITWORK.png')}}" alt="How It Works Illustration" loading="lazy"
-                        class="img-fluid custom-img" />
+                        class="img-fluid rounded shadow custom-img" />
                 </div>
             </div>
         </div>
