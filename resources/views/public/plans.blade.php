@@ -11,7 +11,7 @@
         <!-- Row 1 - Badge -->
         <div class="d-flex align-items-center star-card gap-2">
             <i class="bi bi-graph-up" style="color: var(--color-primary); font-size: 1rem;"></i>
-            <a href="" style="color: var(--color-text-primary); font-weight: 500;">Upto 15% Monthly Returns</a>
+            <a href="" style="color: var(--color-text-primary); font-weight: 500;">Upto 14% Monthly Returns</a>
         </div>
 
         <!-- Row 2 - Main Heading -->
@@ -19,7 +19,8 @@
 
         <!-- Row 3 - Subtitle -->
         <p class="text-center hero-subtitle" style="color: var(--color-text-secondary);">
-            Flexible plans designed to match your financial goals and risk appetite. Start small or go big - we have options for everyone.
+            Flexible plans designed to match your financial goals and risk appetite. Start small or go big - we have
+            options for everyone.
         </p>
 
         <!-- Row 4 - CTA Buttons -->
@@ -56,16 +57,20 @@
         <div class="row g-4 justify-content-center">
             <!-- Starter Plan -->
             <div class="col-md-6 col-lg-4">
-                <div class="feature-card text-center" style="position: relative; padding: var(--spacing-3xl) var(--spacing-2xl);">
+                <div class="feature-card text-center"
+                    style="position: relative; padding: var(--spacing-3xl) var(--spacing-2xl);">
                     <div class="feature-icon">
                         <i class="bi bi-rocket-takeoff"></i>
                     </div>
-                    <h3 class="feature-title" style="font-size: var(--fs-3xl); margin-bottom: var(--spacing-md);">Starter Plan</h3>
+                    <h3 class="feature-title" style="font-size: var(--fs-3xl); margin-bottom: var(--spacing-md);">
+                        Starter Plan</h3>
                     <div style="margin-bottom: var(--spacing-xl);">
-                        <div style="font-size: var(--fs-4xl); font-weight: var(--fw-extra-bold); color: var(--color-primary);">
-                            8%
+                        <div
+                            style="font-size: var(--fs-4xl); font-weight: var(--fw-extra-bold); color: var(--color-primary);">
+                            10%
                         </div>
-                        <div style="font-size: var(--fs-base); color: var(--color-text-secondary);">Monthly Returns</div>
+                        <div style="font-size: var(--fs-base); color: var(--color-text-secondary);">Monthly Returns
+                        </div>
                     </div>
 
                     <div style="text-align: left; margin-bottom: var(--spacing-2xl);">
@@ -75,25 +80,29 @@
                         </div>
                         <div style="margin-bottom: var(--spacing-lg);">
                             <strong style="color: var(--color-text-primary);">Maximum Investment:</strong>
-                            <span style="color: var(--color-text-secondary);"> ₹50,000</span>
+                            <span style="color: var(--color-text-secondary);"> ₹100,000</span>
                         </div>
                     </div>
 
                     <ul style="list-style: none; padding: 0; margin-bottom: var(--spacing-2xl); text-align: left;">
                         <li style="padding: var(--spacing-sm) 0; color: var(--color-text-secondary);">
-                            <i class="bi bi-check-circle-fill" style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
+                            <i class="bi bi-check-circle-fill"
+                                style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
                             Perfect for beginners
                         </li>
                         <li style="padding: var(--spacing-sm) 0; color: var(--color-text-secondary);">
-                            <i class="bi bi-check-circle-fill" style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
+                            <i class="bi bi-check-circle-fill"
+                                style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
                             Monthly profit distribution
                         </li>
                         <li style="padding: var(--spacing-sm) 0; color: var(--color-text-secondary);">
-                            <i class="bi bi-check-circle-fill" style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
+                            <i class="bi bi-check-circle-fill"
+                                style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
                             Basic support
                         </li>
                         <li style="padding: var(--spacing-sm) 0; color: var(--color-text-secondary);">
-                            <i class="bi bi-check-circle-fill" style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
+                            <i class="bi bi-check-circle-fill"
+                                style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
                             Anytime withdrawal
                         </li>
                     </ul>
@@ -107,53 +116,63 @@
 
             <!-- Growth Plan -->
             <div class="col-md-6 col-lg-4">
-                <div class="feature-card text-center" style="position: relative; padding: var(--spacing-3xl) var(--spacing-2xl); border: 2px solid var(--color-primary);">
+                <div class="feature-card text-center"
+                    style="position: relative; padding: var(--spacing-3xl) var(--spacing-2xl); border: 2px solid var(--color-primary);">
                     <!-- Popular Badge -->
-                    <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--color-primary); color: white; padding: var(--spacing-xs) var(--spacing-xl); border-radius: var(--radius-lg); font-weight: var(--fw-semibold); font-size: var(--fs-sm);">
+                    <div
+                        style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--color-primary); color: white; padding: var(--spacing-xs) var(--spacing-xl); border-radius: var(--radius-lg); font-weight: var(--fw-semibold); font-size: var(--fs-sm);">
                         MOST POPULAR
                     </div>
 
                     <div class="feature-icon">
                         <i class="bi bi-bar-chart-line"></i>
                     </div>
-                    <h3 class="feature-title" style="font-size: var(--fs-3xl); margin-bottom: var(--spacing-md);">Growth Plan</h3>
+                    <h3 class="feature-title" style="font-size: var(--fs-3xl); margin-bottom: var(--spacing-md);">Growth
+                        Plan</h3>
                     <div style="margin-bottom: var(--spacing-xl);">
-                        <div style="font-size: var(--fs-4xl); font-weight: var(--fw-extra-bold); color: var(--color-primary);">
+                        <div
+                            style="font-size: var(--fs-4xl); font-weight: var(--fw-extra-bold); color: var(--color-primary);">
                             12%
                         </div>
-                        <div style="font-size: var(--fs-base); color: var(--color-text-secondary);">Monthly Returns</div>
+                        <div style="font-size: var(--fs-base); color: var(--color-text-secondary);">Monthly Returns
+                        </div>
                     </div>
 
                     <div style="text-align: left; margin-bottom: var(--spacing-2xl);">
                         <div style="margin-bottom: var(--spacing-lg);">
                             <strong style="color: var(--color-text-primary);">Minimum Investment:</strong>
-                            <span style="color: var(--color-text-secondary);"> ₹51,000</span>
+                            <span style="color: var(--color-text-secondary);"> ₹100,001</span>
                         </div>
                         <div style="margin-bottom: var(--spacing-lg);">
                             <strong style="color: var(--color-text-primary);">Maximum Investment:</strong>
-                            <span style="color: var(--color-text-secondary);"> ₹2,00,000</span>
+                            <span style="color: var(--color-text-secondary);"> ₹300,000</span>
                         </div>
                     </div>
 
                     <ul style="list-style: none; padding: 0; margin-bottom: var(--spacing-2xl); text-align: left;">
                         <li style="padding: var(--spacing-sm) 0; color: var(--color-text-secondary);">
-                            <i class="bi bi-check-circle-fill" style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
+                            <i class="bi bi-check-circle-fill"
+                                style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
                             Ideal for regular investors
                         </li>
                         <li style="padding: var(--spacing-sm) 0; color: var(--color-text-secondary);">
-                            <i class="bi bi-check-circle-fill" style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
+                            <i class="bi bi-check-circle-fill"
+                                style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
                             Monthly profit distribution
                         </li>
                         <li style="padding: var(--spacing-sm) 0; color: var(--color-text-secondary);">
-                            <i class="bi bi-check-circle-fill" style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
+                            <i class="bi bi-check-circle-fill"
+                                style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
                             Priority support
                         </li>
                         <li style="padding: var(--spacing-sm) 0; color: var(--color-text-secondary);">
-                            <i class="bi bi-check-circle-fill" style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
+                            <i class="bi bi-check-circle-fill"
+                                style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
                             Anytime withdrawal
                         </li>
                         <li style="padding: var(--spacing-sm) 0; color: var(--color-text-secondary);">
-                            <i class="bi bi-check-circle-fill" style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
+                            <i class="bi bi-check-circle-fill"
+                                style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
                             Detailed reports
                         </li>
                     </ul>
@@ -167,22 +186,26 @@
 
             <!-- Premium Plan -->
             <div class="col-md-6 col-lg-4">
-                <div class="feature-card text-center" style="position: relative; padding: var(--spacing-3xl) var(--spacing-2xl);">
+                <div class="feature-card text-center"
+                    style="position: relative; padding: var(--spacing-3xl) var(--spacing-2xl);">
                     <div class="feature-icon">
                         <i class="bi bi-trophy"></i>
                     </div>
-                    <h3 class="feature-title" style="font-size: var(--fs-3xl); margin-bottom: var(--spacing-md);">Premium Plan</h3>
+                    <h3 class="feature-title" style="font-size: var(--fs-3xl); margin-bottom: var(--spacing-md);">
+                        Premium Plan</h3>
                     <div style="margin-bottom: var(--spacing-xl);">
-                        <div style="font-size: var(--fs-4xl); font-weight: var(--fw-extra-bold); color: var(--color-primary);">
-                            15%
+                        <div
+                            style="font-size: var(--fs-4xl); font-weight: var(--fw-extra-bold); color: var(--color-primary);">
+                            14%
                         </div>
-                        <div style="font-size: var(--fs-base); color: var(--color-text-secondary);">Monthly Returns</div>
+                        <div style="font-size: var(--fs-base); color: var(--color-text-secondary);">Monthly Returns
+                        </div>
                     </div>
 
                     <div style="text-align: left; margin-bottom: var(--spacing-2xl);">
                         <div style="margin-bottom: var(--spacing-lg);">
                             <strong style="color: var(--color-text-primary);">Minimum Investment:</strong>
-                            <span style="color: var(--color-text-secondary);"> ₹2,00,001</span>
+                            <span style="color: var(--color-text-secondary);"> ₹3,00,001</span>
                         </div>
                         <div style="margin-bottom: var(--spacing-lg);">
                             <strong style="color: var(--color-text-primary);">Maximum Investment:</strong>
@@ -192,27 +215,33 @@
 
                     <ul style="list-style: none; padding: 0; margin-bottom: var(--spacing-2xl); text-align: left;">
                         <li style="padding: var(--spacing-sm) 0; color: var(--color-text-secondary);">
-                            <i class="bi bi-check-circle-fill" style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
+                            <i class="bi bi-check-circle-fill"
+                                style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
                             Maximum returns
                         </li>
                         <li style="padding: var(--spacing-sm) 0; color: var(--color-text-secondary);">
-                            <i class="bi bi-check-circle-fill" style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
+                            <i class="bi bi-check-circle-fill"
+                                style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
                             Monthly profit distribution
                         </li>
                         <li style="padding: var(--spacing-sm) 0; color: var(--color-text-secondary);">
-                            <i class="bi bi-check-circle-fill" style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
+                            <i class="bi bi-check-circle-fill"
+                                style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
                             Dedicated account manager
                         </li>
                         <li style="padding: var(--spacing-sm) 0; color: var(--color-text-secondary);">
-                            <i class="bi bi-check-circle-fill" style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
+                            <i class="bi bi-check-circle-fill"
+                                style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
                             Anytime withdrawal
                         </li>
                         <li style="padding: var(--spacing-sm) 0; color: var(--color-text-secondary);">
-                            <i class="bi bi-check-circle-fill" style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
+                            <i class="bi bi-check-circle-fill"
+                                style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
                             Advanced analytics
                         </li>
                         <li style="padding: var(--spacing-sm) 0; color: var(--color-text-secondary);">
-                            <i class="bi bi-check-circle-fill" style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
+                            <i class="bi bi-check-circle-fill"
+                                style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
                             VIP support 24/7
                         </li>
                     </ul>
@@ -276,7 +305,8 @@
                         <i class="bi bi-calendar-check"></i>
                     </div>
                     <h3 class="feature-title">Monthly Profits</h3>
-                    <p class="feature-desc">Receive your returns every month like clockwork, automatically calculated.</p>
+                    <p class="feature-desc">Receive your returns every month like clockwork, automatically calculated.
+                    </p>
                 </div>
             </div>
 
@@ -287,7 +317,8 @@
                         <i class="bi bi-graph-up"></i>
                     </div>
                     <h3 class="feature-title">Real-time Tracking</h3>
-                    <p class="feature-desc">Monitor your investments and profits in real-time through your dashboard.</p>
+                    <p class="feature-desc">Monitor your investments and profits in real-time through your dashboard.
+                    </p>
                 </div>
             </div>
 
@@ -367,12 +398,15 @@
             <!-- FAQ 1 -->
             <div class="col-lg-6">
                 <div class="testimonial-card">
-                    <h3 style="font-size: var(--fs-xl); font-weight: var(--fw-semibold); color: var(--color-text-primary); margin-bottom: var(--spacing-lg);">
-                        <i class="bi bi-question-circle" style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
+                    <h3
+                        style="font-size: var(--fs-xl); font-weight: var(--fw-semibold); color: var(--color-text-primary); margin-bottom: var(--spacing-lg);">
+                        <i class="bi bi-question-circle"
+                            style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
                         Can I switch between plans?
                     </h3>
                     <p class="feature-desc">
-                        Yes, you can upgrade or change your investment plan at any time. Simply contact our support team or manage it through your dashboard.
+                        Yes, you can upgrade or change your investment plan at any time. Simply contact our support team
+                        or manage it through your dashboard.
                     </p>
                 </div>
             </div>
@@ -380,12 +414,15 @@
             <!-- FAQ 2 -->
             <div class="col-lg-6">
                 <div class="testimonial-card">
-                    <h3 style="font-size: var(--fs-xl); font-weight: var(--fw-semibold); color: var(--color-text-primary); margin-bottom: var(--spacing-lg);">
-                        <i class="bi bi-question-circle" style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
+                    <h3
+                        style="font-size: var(--fs-xl); font-weight: var(--fw-semibold); color: var(--color-text-primary); margin-bottom: var(--spacing-lg);">
+                        <i class="bi bi-question-circle"
+                            style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
                         When do I receive my profits?
                     </h3>
                     <p class="feature-desc">
-                        Profits are calculated and distributed at the end of each month automatically. You can withdraw them or reinvest for compound growth.
+                        Profits are calculated and distributed at the end of each month automatically. You can withdraw
+                        them or reinvest for compound growth.
                     </p>
                 </div>
             </div>
@@ -393,12 +430,15 @@
             <!-- FAQ 3 -->
             <div class="col-lg-6">
                 <div class="testimonial-card">
-                    <h3 style="font-size: var(--fs-xl); font-weight: var(--fw-semibold); color: var(--color-text-primary); margin-bottom: var(--spacing-lg);">
-                        <i class="bi bi-question-circle" style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
+                    <h3
+                        style="font-size: var(--fs-xl); font-weight: var(--fw-semibold); color: var(--color-text-primary); margin-bottom: var(--spacing-lg);">
+                        <i class="bi bi-question-circle"
+                            style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
                         Is there a lock-in period?
                     </h3>
                     <p class="feature-desc">
-                        No, there is no lock-in period. You can withdraw your investment anytime, giving you complete flexibility and control over your funds.
+                        No, there is no lock-in period. You can withdraw your investment anytime, giving you complete
+                        flexibility and control over your funds.
                     </p>
                 </div>
             </div>
@@ -406,12 +446,15 @@
             <!-- FAQ 4 -->
             <div class="col-lg-6">
                 <div class="testimonial-card">
-                    <h3 style="font-size: var(--fs-xl); font-weight: var(--fw-semibold); color: var(--color-text-primary); margin-bottom: var(--spacing-lg);">
-                        <i class="bi bi-question-circle" style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
+                    <h3
+                        style="font-size: var(--fs-xl); font-weight: var(--fw-semibold); color: var(--color-text-primary); margin-bottom: var(--spacing-lg);">
+                        <i class="bi bi-question-circle"
+                            style="color: var(--color-primary); margin-right: var(--spacing-sm);"></i>
                         How secure is my investment?
                     </h3>
                     <p class="feature-desc">
-                        All investments are verified through bank receipts and protected with bank-level security. We maintain 99.9% uptime and use enterprise-grade encryption.
+                        All investments are verified through bank receipts and protected with bank-level security. We
+                        maintain 99.9% uptime and use enterprise-grade encryption.
                     </p>
                 </div>
             </div>
@@ -429,5 +472,4 @@
         </div>
     </div>
 </section>
-
 @endsection

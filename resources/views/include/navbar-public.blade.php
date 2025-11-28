@@ -16,7 +16,6 @@
                   <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About</a></li>
                   <li class="nav-item"><a class="nav-link" href="{{ route('plans') }}">Investment Plans</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">Account</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
                   <li class="nav-item ms-2">
                       <a href="{{route('login')}}" class="btn btn-sm btn-primary px-3"
