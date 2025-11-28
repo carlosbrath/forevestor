@@ -19,7 +19,8 @@
 
         <!-- Row 3 - Subtitle -->
         <p class="text-center hero-subtitle" style="color: var(--color-text-secondary);">
-            We're on a mission to make wealth creation accessible to everyone through smart, secure, and transparent investments.
+            We're on a mission to make wealth creation accessible to everyone through smart, secure, and transparent
+            investments.
         </p>
     </div>
 
@@ -50,17 +51,26 @@
             </div>
             <div class="col-lg-6">
                 <div class="step-content">
-                    <h3 style="font-size: var(--fs-3xl); font-weight: var(--fw-bold); color: var(--color-text-primary); margin-bottom: var(--spacing-xl);">
+                    <h3
+                        style="font-size: var(--fs-3xl); font-weight: var(--fw-bold); color: var(--color-text-primary); margin-bottom: var(--spacing-xl);">
                         Who We Are
                     </h3>
-                    <p style="font-size: var(--fs-base); color: var(--color-text-secondary); line-height: var(--lh-normal); margin-bottom: var(--spacing-lg);">
-                        Forevestor was founded with a simple yet powerful vision: to democratize wealth creation and make investment opportunities accessible to everyone. We believe that financial growth shouldn't be limited to the privileged few.
+                    <p
+                        style="font-size: var(--fs-base); color: var(--color-text-secondary); line-height: var(--lh-normal); margin-bottom: var(--spacing-lg);">
+                        Forevestor was founded with a simple yet powerful vision: to democratize wealth creation and
+                        make investment opportunities accessible to everyone. We believe that financial growth shouldn't
+                        be limited to the privileged few.
                     </p>
-                    <p style="font-size: var(--fs-base); color: var(--color-text-secondary); line-height: var(--lh-normal); margin-bottom: var(--spacing-lg);">
-                        Our platform combines cutting-edge technology with financial expertise to provide a secure, transparent, and user-friendly investment experience. With over 50,000 active investors and ₹100 Crores in managed assets, we've proven that smart investing can be both simple and profitable.
+                    <p
+                        style="font-size: var(--fs-base); color: var(--color-text-secondary); line-height: var(--lh-normal); margin-bottom: var(--spacing-lg);">
+                        Our platform combines cutting-edge technology with financial expertise to provide a secure,
+                        transparent, and user-friendly investment experience. With over 50,000 active investors and ₹100
+                        Crores in managed assets, we've proven that smart investing can be both simple and profitable.
                     </p>
-                    <p style="font-size: var(--fs-base); color: var(--color-text-secondary); line-height: var(--lh-normal);">
-                        Every day, we work tirelessly to ensure our investors receive consistent returns while maintaining the highest standards of security and transparency.
+                    <p
+                        style="font-size: var(--fs-base); color: var(--color-text-secondary); line-height: var(--lh-normal);">
+                        Every day, we work tirelessly to ensure our investors receive consistent returns while
+                        maintaining the highest standards of security and transparency.
                     </p>
                 </div>
             </div>
@@ -84,7 +94,8 @@
                         <i class="bi bi-shield-check"></i>
                     </div>
                     <h3 class="feature-title">Transparency</h3>
-                    <p class="feature-desc">We believe in complete transparency. Every transaction, every profit, every detail is clearly communicated to our investors.</p>
+                    <p class="feature-desc">We believe in complete transparency. Every transaction, every profit, every
+                        detail is clearly communicated to our investors.</p>
                 </div>
             </div>
 
@@ -95,7 +106,8 @@
                         <i class="bi bi-lock-fill"></i>
                     </div>
                     <h3 class="feature-title">Security First</h3>
-                    <p class="feature-desc">Your investments are protected with bank-level security and verified through secure bank receipts.</p>
+                    <p class="feature-desc">Your investments are protected with bank-level security and verified through
+                        secure bank receipts.</p>
                 </div>
             </div>
 
@@ -106,7 +118,8 @@
                         <i class="bi bi-people-fill"></i>
                     </div>
                     <h3 class="feature-title">Customer First</h3>
-                    <p class="feature-desc">Our investors are our priority. We're committed to providing exceptional support and service at every step.</p>
+                    <p class="feature-desc">Our investors are our priority. We're committed to providing exceptional
+                        support and service at every step.</p>
                 </div>
             </div>
 
@@ -117,7 +130,8 @@
                         <i class="bi bi-graph-up-arrow"></i>
                     </div>
                     <h3 class="feature-title">Innovation</h3>
-                    <p class="feature-desc">We continuously evolve our platform with the latest technology to provide the best investment experience.</p>
+                    <p class="feature-desc">We continuously evolve our platform with the latest technology to provide
+                        the best investment experience.</p>
                 </div>
             </div>
 
@@ -128,7 +142,8 @@
                         <i class="bi bi-award-fill"></i>
                     </div>
                     <h3 class="feature-title">Excellence</h3>
-                    <p class="feature-desc">We strive for excellence in everything we do, from our technology to our customer service.</p>
+                    <p class="feature-desc">We strive for excellence in everything we do, from our technology to our
+                        customer service.</p>
                 </div>
             </div>
 
@@ -139,7 +154,8 @@
                         <i class="bi bi-heart-fill"></i>
                     </div>
                     <h3 class="feature-title">Trust & Integrity</h3>
-                    <p class="feature-desc">We build lasting relationships through honest practices and consistent delivery of our promises.</p>
+                    <p class="feature-desc">We build lasting relationships through honest practices and consistent
+                        delivery of our promises.</p>
                 </div>
             </div>
         </div>
@@ -158,7 +174,8 @@
                     </div>
                     <h3 class="feature-title" style="font-size: var(--fs-3xl);">Our Mission</h3>
                     <p class="feature-desc" style="font-size: var(--fs-lg);">
-                        To empower individuals to achieve financial independence through accessible, secure, and profitable investment opportunities that deliver consistent returns.
+                        To empower individuals to achieve financial independence through accessible, secure, and
+                        profitable investment opportunities that deliver consistent returns.
                     </p>
                 </div>
             </div>
@@ -171,7 +188,9 @@
                     </div>
                     <h3 class="feature-title" style="font-size: var(--fs-3xl);">Our Vision</h3>
                     <p class="feature-desc" style="font-size: var(--fs-lg);">
-                        To become India's most trusted investment platform, enabling millions to build wealth and secure their financial future with confidence.
+                        To become Global most trusted investment platform, enabling millions to build wealth and
+                        secure
+                        their financial future with confidence.
                     </p>
                 </div>
             </div>

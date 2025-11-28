@@ -19,7 +19,7 @@
 
         <!-- Row 3 - Subtitle -->
         <p class="text-center hero-subtitle" style="color: var(--color-text-secondary);">Invest with confidence. Earn
-            upto 15% Monthly profit and build your financial future.</p>
+            Upto 14% Monthly profit and build your financial future.</p>
 
         <!-- Row 4 - CTA Buttons -->
         <div class="d-flex gap-3 justify-content-center flex-wrap hero-cta">
@@ -57,8 +57,8 @@
                     <div class="feature-icon">
                         <i class="bi bi-graph-up"></i>
                     </div>
-                    <h3 class="feature-title">Upto 15% Monthly Profit</h3>
-                    <p class="feature-desc">Earn consistent upto 15% Monthly returns on your investments automatically
+                    <h3 class="feature-title">Upto 14% Monthly Profit</h3>
+                    <p class="feature-desc">Earn consistent Upto 14% Monthly returns on your investments automatically
                     </p>
                 </div>
             </div>
@@ -233,7 +233,7 @@
                         <div class="step-number">3</div>
                         <div class="step-content">
                             <h3>Earn Daily Profits</h3>
-                            <p>Watch your investment grow with automatic upto 15% Monthly profit calculation</p>
+                            <p>Watch your investment grow with automatic Upto 14% Monthly profit calculation</p>
                         </div>
                     </div>
                 </div>
@@ -347,7 +347,7 @@
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
                     </div>
-                    <p class="testimonial-text">"Transparent, reliable, and consistent. The upto 15% Monthly
+                    <p class="testimonial-text">"Transparent, reliable, and consistent. The Upto 14% Monthly
                         profit is exactly what I needed to grow my portfolio."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">RK</div>
@@ -468,7 +468,7 @@
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
                     </div>
-                    <p class="testimonial-text">"Transparent, reliable, and consistent. The upto 15% Monthly
+                    <p class="testimonial-text">"Transparent, reliable, and consistent. The Upto 14% Monthly
                         profit is exactly what I needed to grow my portfolio."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">RK</div>
@@ -488,7 +488,7 @@
     <div class="container-lg">
         <div class="cta-content text-center">
             <h2 class="cta-title">Ready to Start Investing?</h2>
-            <p class="cta-subtitle">Join thousands of investors and start earning upto 15% Monthly profit
+            <p class="cta-subtitle">Join thousands of investors and start earning Upto 14% Monthly profit
                 today</p>
             <a href="#" class="btn btn-primary btn-lg">Register Now</a>
         </div>
