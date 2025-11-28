@@ -1,153 +1,166 @@
-@extends('layouts.master-public')
-@section('title', 'Investment Details - ' . $investment->id)
+@extends('layouts.master')
 @section('content')
-
-<section class="investment-details-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-10">
-
-                <!-- Header -->
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h1 class="mb-0" style="color: var(--color-text-primary);">Investment Details</h1>
-                    <a href="{{ route('investments.index') }}" class="btn btn-outline-secondary">Back to List</a>
-                </div>
-
-                <!-- Status Alert -->
-                @if($investment->status === 'pending')
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <strong>Pending Approval</strong> Your investment is waiting for admin verification.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    </div>
-                @elseif($investment->status === 'approved')
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong>Approved!</strong> Your investment has been verified and activated.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    </div>
-                @elseif($investment->status === 'rejected')
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong>Rejected</strong> Your investment could not be verified. Please contact support.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    </div>
-                @endif
-
-                <!-- Investment Card -->
-                <div class="card mb-4" style="border: 1px solid var(--color-border-primary);">
-                    <div class="card-header" style="background-color: var(--color-bg-secondary); border-bottom: 1px solid var(--color-border-primary);">
-                        <h5 class="mb-0" style="color: var(--color-text-primary);">Investment #{{ $investment->id }}</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row mb-3">
-                            <div class="col-md-6 mb-3">
-                                <label class="text-muted small">Investment Amount</label>
-                                <h6 style="color: var(--color-text-primary);">₹{{ number_format($investment->investment_amount, 2) }}</h6>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="text-muted small">Paid Amount</label>
-                                <h6 style="color: var(--color-text-primary);">₹{{ number_format($investment->paid_amount, 2) }}</h6>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="text-muted small">Payment Method</label>
-                                <p style="color: var(--color-text-primary);" class="mb-0">{{ ucfirst(str_replace('_', ' ', $investment->payment_method)) }}</p>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="text-muted small">Status</label>
-                                <p class="mb-0">
-                                    <span class="badge bg-{{ $investment->status === 'approved' ? 'success' : ($investment->status === 'rejected' ? 'danger' : 'warning') }}">
-                                        {{ ucfirst($investment->status) }}
-                                    </span>
-                                </p>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="text-muted small">Transaction ID</label>
-                                <p style="color: var(--color-text-primary);" class="mb-0 text-break">{{ $investment->transaction_id }}</p>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="text-muted small">UPI/Bank</label>
-                                <p style="color: var(--color-text-primary);" class="mb-0 text-break">{{ $investment->upi_id_or_bank }}</p>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="text-muted small">Transaction Date & Time</label>
-                                <p style="color: var(--color-text-primary);" class="mb-0">{{ $investment->transaction_datetime->format('d M Y, h:i A') }}</p>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="text-muted small">Submitted At</label>
-                                <p style="color: var(--color-text-primary);" class="mb-0">{{ $investment->created_at->format('d M Y, h:i A') }}</p>
-                            </div>
-                            @if($investment->approved_at)
-                                <div class="col-md-6 mb-3">
-                                    <label class="text-muted small">Approved At</label>
-                                    <p style="color: var(--color-text-primary);" class="mb-0">{{ $investment->approved_at->format('d M Y, h:i A') }}</p>
-                                </div>
-                            @endif
-                            @if($investment->profit_cycle_start)
-                                <div class="col-md-6 mb-3">
-                                    <label class="text-muted small">Profit Cycle Start</label>
-                                    <p style="color: var(--color-text-primary);" class="mb-0">{{ $investment->profit_cycle_start->format('d M Y') }}</p>
-                                </div>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Payment Proof -->
-                <div class="card mb-4" style="border: 1px solid var(--color-border-primary);">
-                    <div class="card-header" style="background-color: var(--color-bg-secondary); border-bottom: 1px solid var(--color-border-primary);">
-                        <h5 class="mb-0" style="color: var(--color-text-primary);">Payment Proof</h5>
-                    </div>
-                    <div class="card-body text-center">
-                        <img src="{{ Storage::url($investment->payment_proof) }}" alt="Payment Screenshot" class="img-fluid" style="max-height: 400px; border-radius: var(--radius-md);">
-                    </div>
-                </div>
-
-                <!-- Profit History -->
-                @if($profitHistories->count() > 0)
-                    <div class="card mb-4" style="border: 1px solid var(--color-border-primary);">
-                        <div class="card-header" style="background-color: var(--color-bg-secondary); border-bottom: 1px solid var(--color-border-primary);">
-                            <h5 class="mb-0" style="color: var(--color-text-primary);">Profit History</h5>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-hover mb-0">
-                                <thead style="background-color: var(--color-bg-secondary);">
-                                    <tr>
-                                        <th style="color: var(--color-text-primary);">Date</th>
-                                        <th style="color: var(--color-text-primary);">Profit Amount</th>
-                                        <th style="color: var(--color-text-primary);">Percentage</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($profitHistories as $profit)
-                                        <tr>
-                                            <td>{{ $profit->profit_date->format('d M Y') }}</td>
-                                            <td style="color: var(--color-text-primary);">₹{{ number_format($profit->profit_amount, 2) }}</td>
-                                            <td style="color: var(--color-text-primary);">{{ number_format($profit->percentage, 2) }}%</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                @endif
-
-                <!-- Actions -->
-                @if($investment->status === 'pending')
-                    <div class="d-flex gap-2">
-                        <a href="{{ route('investments.edit', $investment->id) }}" class="btn btn-primary">
-                            <i class="bi bi-pencil me-2"></i> Edit Investment
-                        </a>
-                        <form method="POST" action="{{ route('investments.destroy', $investment->id) }}" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this investment?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">
-                                <i class="bi bi-trash me-2"></i> Delete Investment
-                            </button>
-                        </form>
-                    </div>
-                @endif
-
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="welcome-text">
+                <h2>Investment Details</h2>
+                <p>View your investment information and profit history</p>
+            </div>
+            <div class="user-profile">
+                <a href="{{ route('home') }}" class="btn btn-outline-secondary me-2" style="padding: 0.5rem 1rem; border-radius: 8px; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <i class="bi bi-house-door"></i>
+                    Visit Website
+                </a>
+                <a href="{{ route('investments.index') }}" class="btn btn-outline-primary me-2" style="padding: 0.5rem 1rem; border-radius: 8px; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <i class="bi bi-arrow-left"></i>
+                    Back to List
+                </a>
+                <a href="{{ route('investments.create') }}" class="invest-now-btn">
+                    <span class="invest-btn-border"></span>
+                    <span class="invest-btn-text">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                        Invest Now
+                    </span>
+                </a>
+                <div class="user-avatar">{{ strtoupper(substr(auth()->user()->full_name, 0, 2)) }}</div>
             </div>
         </div>
-    </div>
-</section>
+
+        <!-- Status Alert -->
+        @if($investment->status === 'pending')
+            <div class="alert alert-warning alert-dismissible fade show mb-4" role="alert" style="border-radius: 12px;">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                <strong>Pending Approval</strong> Your investment is waiting for admin verification.
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        @elseif($investment->status === 'approved')
+            <div class="alert alert-success alert-dismissible fade show mb-4" role="alert" style="border-radius: 12px;">
+                <i class="bi bi-check-circle-fill me-2"></i>
+                <strong>Approved!</strong> Your investment has been verified and activated.
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        @elseif($investment->status === 'rejected')
+            <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert" style="border-radius: 12px;">
+                <i class="bi bi-x-circle-fill me-2"></i>
+                <strong>Rejected</strong> Your investment could not be verified. Please contact support.
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        @endif
+
+
+        <!-- Investment Details Section -->
+        <div class="row mb-4">
+            <div class="col-lg-8 mb-4">
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Investment Information</h3>
+                    </div>
+                    <div class="p-4">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="detail-item">
+                                    <label class="detail-label">
+                                        <i class="bi bi-hash me-2"></i>Transaction ID
+                                    </label>
+                                    <p class="detail-value">{{ $investment->transaction_id }}</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="detail-item">
+                                    <label class="detail-label">
+                                        <i class="bi bi-bank me-2"></i>UPI/Bank Details
+                                    </label>
+                                    <p class="detail-value">{{ $investment->upi_id_or_bank }}</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="detail-item">
+                                    <label class="detail-label">
+                                        <i class="bi bi-calendar-event me-2"></i>Submitted At
+                                    </label>
+                                    <p class="detail-value">{{ $investment->created_at->format('d M Y, h:i A') }}</p>
+                                </div>
+                            </div>
+
+                            @if($investment->approved_at)
+                                <div class="col-md-6">
+                                    <div class="detail-item">
+                                        <label class="detail-label">
+                                            <i class="bi bi-check-circle me-2"></i>Approved At
+                                        </label>
+                                        <p class="detail-value">{{ $investment->approved_at->format('d M Y, h:i A') }}</p>
+                                    </div>
+                                </div>
+                            @endif
+
+                            @if($investment->profit_cycle_start)
+                                <div class="col-md-6">
+                                    <div class="detail-item">
+                                        <label class="detail-label">
+                                            <i class="bi bi-graph-up-arrow me-2"></i>Profit Cycle Start
+                                        </label>
+                                        <p class="detail-value">{{ $investment->profit_cycle_start->format('d M Y') }}</p>
+                                    </div>
+                                </div>
+                            @endif
+
+                            <div class="col-md-6">
+                                <div class="detail-item">
+                                    <label class="detail-label">
+                                        <i class="bi bi-credit-card me-2"></i>Payment Method
+                                    </label>
+                                    <p class="detail-value">{{ ucfirst(str_replace('_', ' ', $investment->payment_method)) }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- <div class="col-lg-4 mb-4">
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Quick Actions</h3>
+                    </div>
+                    <div class="p-4">
+                        @if($investment->status === 'pending')
+                            <div class="d-grid gap-3">
+                                <a href="{{ route('investments.edit', $investment->id) }}" class="btn btn-primary" style="border-radius: 10px; padding: 12px;">
+                                    <i class="bi bi-pencil me-2"></i> Edit Investment
+                                </a>
+                                <form method="POST" action="{{ route('investments.destroy', $investment->id) }}" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this investment?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger w-100" style="border-radius: 10px; padding: 12px;">
+                                        <i class="bi bi-trash me-2"></i> Delete Investment
+                                    </button>
+                                </form>
+                            </div>
+                        @else
+                            <div class="alert alert-info mb-0" style="border-radius: 10px;">
+                                <i class="bi bi-info-circle me-2"></i>
+                                This investment has been {{ $investment->status }}. No actions available.
+                            </div>
+                        @endif
+
+                        <hr class="my-4">
+
+                        <div class="d-grid gap-2">
+                            <a href="{{ route('dashboard') }}" class="btn btn-outline-primary" style="border-radius: 10px; padding: 10px;">
+                                <i class="bi bi-speedometer2 me-2"></i> Go to Dashboard
+                            </a>
+                            <a href="{{ route('investments.index') }}" class="btn btn-outline-secondary" style="border-radius: 10px; padding: 10px;">
+                                <i class="bi bi-list-ul me-2"></i> View All Investments
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
+        </div>
+    </main>
 
 @endsection

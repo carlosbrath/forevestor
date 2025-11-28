@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('payment_method', 50);
             $table->string('upi_id_or_bank', 150);
             $table->string('transaction_id', 150);
-            $table->string('payment_proof');
-            $table->dateTime('transaction_datetime');
+            $table->string('payment_proof')->nullable();
+            $table->dateTime('transaction_datetime')->nullable();
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
             $table->dateTime('approved_at')->nullable();
             $table->dateTime('profit_cycle_start')->nullable();

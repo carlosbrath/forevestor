@@ -36,22 +36,13 @@
                         @enderror
                     </div>
 
-                    <!-- Row 3: Phone & Date of Birth -->
-                    <div class="row g-3 mb-4">
-                        <div class="col-md-6">
-                            <label for="phone" class="form-label fw-600" style="color: var(--color-text-primary);">Phone Number <span class="text-danger">*</span></label>
-                            <input type="tel" class="form-control form-control-lg @error('phone') is-invalid @enderror" id="phone" name="phone" placeholder="Enter your phone" value="{{ old('phone') }}" required>
-                            @error('phone')
-                                <div class="invalid-feedback d-block">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="col-md-6">
-                            <label for="dateOfBirth" class="form-label fw-600" style="color: var(--color-text-primary);">Date of Birth <span class="text-danger">*</span></label>
-                            <input type="date" class="form-control form-control-lg @error('date_of_birth') is-invalid @enderror" id="dateOfBirth" name="date_of_birth" value="{{ old('date_of_birth') }}" required>
-                            @error('date_of_birth')
-                                <div class="invalid-feedback d-block">{{ $message }}</div>
-                            @enderror
-                        </div>
+                    <!-- Row 3: Phone Number -->
+                    <div class="mb-4">
+                        <label for="phone" class="form-label fw-600" style="color: var(--color-text-primary);">Phone Number <span class="text-danger">*</span></label>
+                        <input type="tel" class="form-control form-control-lg @error('phone') is-invalid @enderror" id="phone" name="phone" placeholder="Enter your phone" value="{{ old('phone') }}" required>
+                        @error('phone')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <!-- Row 4: Password & Confirm Password -->
@@ -82,59 +73,14 @@
                         </div>
                     </div>
 
-                    <!-- Row 5: CNIC Number & City -->
-                    <div class="row g-3 mb-4">
-                        <div class="col-md-6">
-                            <label for="cnicNumber" class="form-label fw-600" style="color: var(--color-text-primary);">CNIC Number <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control form-control-lg @error('cnic_number') is-invalid @enderror" id="cnicNumber" name="cnic_number" placeholder="e.g., 12345-1234567-1" value="{{ old('cnic_number') }}" required>
-                            @error('cnic_number')
-                                <div class="invalid-feedback d-block">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="col-md-6">
-                            <label for="city" class="form-label fw-600" style="color: var(--color-text-primary);">City <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control form-control-lg @error('city') is-invalid @enderror" id="city" name="city" placeholder="Enter your city" value="{{ old('city') }}" required>
-                            @error('city')
-                                <div class="invalid-feedback d-block">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <!-- Row 6: Country & Address -->
-                    <div class="row g-3 mb-4">
-                        <div class="col-md-6">
-                            <label for="country" class="form-label fw-600" style="color: var(--color-text-primary);">Country <span class="text-danger">*</span></label>
-                            <select class="form-select form-control-lg @error('country') is-invalid @enderror" id="country" name="country" required>
-                                <option value="">Select your country</option>
-                                <option value="Pakistan" {{ old('country') == 'Pakistan' ? 'selected' : '' }}>Pakistan</option>
-                                <option value="USA" {{ old('country') == 'USA' ? 'selected' : '' }}>USA</option>
-                                <option value="UK" {{ old('country') == 'UK' ? 'selected' : '' }}>UK</option>
-                                <option value="Canada" {{ old('country') == 'Canada' ? 'selected' : '' }}>Canada</option>
-                                <option value="Australia" {{ old('country') == 'Australia' ? 'selected' : '' }}>Australia</option>
-                                <option value="Other" {{ old('country') == 'Other' ? 'selected' : '' }}>Other</option>
-                            </select>
-                            @error('country')
-                                <div class="invalid-feedback d-block">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="col-md-6">
-                            <label for="address" class="form-label fw-600" style="color: var(--color-text-primary);">Address <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control form-control-lg @error('address') is-invalid @enderror" id="address" name="address" placeholder="Enter your address" value="{{ old('address') }}" required>
-                            @error('address')
-                                <div class="invalid-feedback d-block">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-
-
-                    <!-- Row 7: Referral Code (Optional) -->
+                    {{-- <!-- Row 5: Referral Code (Optional) -->
                     <div class="mb-4">
                         <label for="referralCode" class="form-label fw-600" style="color: var(--color-text-primary);">Referral Code <span class="badge bg-secondary ms-2">Optional</span></label>
                         <input type="text" class="form-control form-control-lg" id="referralCode" name="referral_code" placeholder="Enter referral code (if you have one)" value="{{ old('referral_code') }}">
                         <small class="form-text" style="color: var(--color-text-secondary);">Got a referral code? Enter it to unlock bonuses</small>
-                    </div>
+                    </div> --}}
 
-                    <!-- Row 8: Terms & Conditions -->
+                    <!-- Row 6: Terms & Conditions -->
                     <div class="mb-4">
                         <div class="form-check">
                             <input class="form-check-input @error('terms_agreed') is-invalid @enderror" type="checkbox" id="termsCheckbox" name="terms_agreed" required>

@@ -731,6 +731,31 @@ tbody tr:hover {
     border-radius: 10px;
 }
 
+.detail-item {
+    margin-bottom: 1rem;
+}
+
+.detail-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.detail-value {
+    font-size: 1rem;
+    color: var(--color-text-primary);
+    font-weight: 600;
+    margin: 0;
+    word-break: break-word;
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .sidebar {
@@ -920,5 +945,3 @@ tbody tr:hover {
         gap: 0.5rem;
     }
 }
-
-

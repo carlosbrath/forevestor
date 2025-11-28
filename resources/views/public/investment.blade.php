@@ -78,40 +78,6 @@
                         @enderror
                     </div>
 
-                    <!-- Row 6: Payment Screenshot -->
-                    <div class="mb-4">
-                        <label for="paymentScreenshot" class="form-label fw-600" style="color: var(--color-text-primary);">Payment Screenshot <span class="text-danger">*</span></label>
-                        <input type="file" class="form-control form-control-lg @error('payment_screenshot') is-invalid @enderror" id="paymentScreenshot" name="payment_screenshot" accept=".jpg,.jpeg,.png" required>
-                        <small class="form-text" style="color: var(--color-text-secondary);">Accepted formats: JPG, JPEG, PNG (Max 5MB)</small>
-                        @error('payment_screenshot')
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <!-- Row 7: Transaction Date & Time -->
-                    <div class="mb-4">
-                        <label for="transactionDateTime" class="form-label fw-600" style="color: var(--color-text-primary);">Transaction Date & Time <span class="text-danger">*</span></label>
-                        <input type="datetime-local" class="form-control form-control-lg @error('transaction_date_time') is-invalid @enderror" id="transactionDateTime" name="transaction_date_time" value="{{ old('transaction_date_time') }}" required>
-                        @error('transaction_date_time')
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <!-- Row 8: Investment Plan (Optional) -->
-                    <div class="mb-4">
-                        <label for="investmentPlan" class="form-label fw-600" style="color: var(--color-text-primary);">Investment Plan <span class="badge bg-secondary ms-2">Optional</span></label>
-                        <select class="form-select form-control-lg @error('investment_plan') is-invalid @enderror" id="investmentPlan" name="investment_plan">
-                            <option value="">Choose Plan (optional)</option>
-                            <option value="1_percent_daily" {{ old('investment_plan') == '1_percent_daily' ? 'selected' : '' }}>1% Daily</option>
-                            <option value="1_5_percent_daily" {{ old('investment_plan') == '1_5_percent_daily' ? 'selected' : '' }}>1.5% Daily</option>
-                            <option value="30_day_roi" {{ old('investment_plan') == '30_day_roi' ? 'selected' : '' }}>30-Day ROI</option>
-                            <option value="45_day_fixed" {{ old('investment_plan') == '45_day_fixed' ? 'selected' : '' }}>45-Day Fixed</option>
-                        </select>
-                        @error('investment_plan')
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                        @enderror
-                    </div>
-
                     <!-- Row 9: Notes (Optional) -->
                     <div class="mb-4">
                         <label for="notes" class="form-label fw-600" style="color: var(--color-text-primary);">Notes <span class="badge bg-secondary ms-2">Optional</span></label>
@@ -451,17 +417,8 @@
                     isValid = false;
                 }
 
-                // Validate Payment Screenshot
-                if (!paymentScreenshotInput.files || paymentScreenshotInput.files.length === 0) {
-                    paymentScreenshotInput.classList.add('is-invalid');
-                    isValid = false;
-                }
-
-                // Validate Transaction Date & Time
-                if (!transactionDateTimeInput.value) {
-                    transactionDateTimeInput.classList.add('is-invalid');
-                    isValid = false;
-                }
+              
+              
 
                 if (!isValid) {
                     e.preventDefault();

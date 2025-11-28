@@ -20,17 +20,6 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
 
-            // Personal Information
-            $table->date('date_of_birth');
-            $table->text('address');
-            $table->string('city');
-            $table->string('country');
-
-            // CNIC Information
-            $table->string('cnic_number')->unique();
-            $table->string('cnic_front_image')->nullable();
-            $table->string('cnic_back_image')->nullable();
-
             // Referral & Status
             $table->string('referral_code')->nullable();
             $table->boolean('terms_agreed')->default(false);

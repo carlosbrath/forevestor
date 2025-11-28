@@ -9,6 +9,10 @@
                 <p>Here's what's happening with your investments today</p>
             </div>
             <div class="user-profile">
+                <a href="{{ route('home') }}" class="btn btn-outline-secondary me-2" style="padding: 0.5rem 1rem; border-radius: 8px; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <i class="bi bi-house-door"></i>
+                    Visit Website
+                </a>
                 <a href="{{ route('investments.create') }}" class="invest-now-btn">
                     <span class="invest-btn-border"></span>
                     <span class="invest-btn-text">
@@ -16,7 +20,7 @@
                         Invest Now
                     </span>
                 </a>
-                
+
                 <div class="user-avatar">JD</div>
             </div>
         </div>

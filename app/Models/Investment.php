@@ -18,8 +18,6 @@ class Investment extends Model
         'payment_method',
         'upi_id_or_bank',
         'transaction_id',
-        'payment_proof',
-        'transaction_datetime',
         'status',
         'approved_at',
         'profit_cycle_start',

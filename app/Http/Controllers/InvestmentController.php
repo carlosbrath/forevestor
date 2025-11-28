@@ -43,9 +43,6 @@ class InvestmentController extends Controller
             'payment_method' => 'required|in:upi_gpay,bhim_upi,imps,neft_rtgs,net_banking',
             'upi_or_bank' => 'required|string|max:150|min:3',
             'transaction_id' => 'required|string|max:150|min:5',
-            'payment_screenshot' => 'required|image|mimes:jpeg,jpg,png|max:5120', // 5MB in KB
-            'transaction_date_time' => 'required|date_format:Y-m-d\TH:i|before_or_equal:now',
-            'investment_plan' => 'nullable|in:1_percent_daily,1_5_percent_daily,30_day_roi,45_day_fixed',
             'notes' => 'nullable|string|max:500',
         ]);
 
@@ -70,9 +67,6 @@ class InvestmentController extends Controller
         try {
             DB::beginTransaction();
 
-            // Store the payment screenshot
-            $paymentProof = $this->storePaymentProof($request->file('payment_screenshot'));
-
             // Create the investment record
             $investment = Investment::create([
                 'user_id' => auth()->id(),
@@ -81,8 +75,6 @@ class InvestmentController extends Controller
                 'payment_method' => $validated['payment_method'],
                 'upi_id_or_bank' => $validated['upi_or_bank'],
                 'transaction_id' => $validated['transaction_id'],
-                'payment_proof' => $paymentProof,
-                'transaction_datetime' => $validated['transaction_date_time'],
                 'status' => 'pending',
             ]);
 

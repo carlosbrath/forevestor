@@ -19,9 +19,18 @@
                   <li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
                   <li class="nav-item ms-2">
-                      <a href="{{route('login')}}" class="btn btn-sm btn-primary px-3"
-                          style="background-color: var(--color-primary); border-color: var(--color-primary); color: white;">Sign
-                          In</a>
+                      @auth
+                          <a href="{{ route('dashboard') }}" class="btn btn-sm btn-primary px-3"
+                              style="background-color: var(--color-primary); border-color: var(--color-primary); color: white;">
+                              <i class="bi bi-speedometer2"></i>
+                              Dashboard
+                          </a>
+                      @else
+                          <a href="{{ route('login') }}" class="btn btn-sm btn-primary px-3"
+                              style="background-color: var(--color-primary); border-color: var(--color-primary); color: white;">
+                              Sign In
+                          </a>
+                      @endauth
                   </li>
               </ul>
           </div>
