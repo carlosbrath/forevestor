@@ -12,6 +12,7 @@ use App\Http\Controllers\AdminController;
 Route::get('/', [PublicController::class, 'home'])->name('home');
 Route::get('/about', [PublicController::class, 'about'])->name('about');
 Route::get('/plans', [PublicController::class, 'plans'])->name('plans');
+Route::get('/help', [PublicController::class, 'help'])->name('help');
 
 // Guest only routes - only for non-authenticated users
 Route::middleware('guest')->group(function () {

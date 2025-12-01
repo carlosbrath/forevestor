@@ -34,4 +34,10 @@ class PublicController extends Controller
         $title = 'Investment Plans';
         return view('public.plans', compact('title'));
     }
+
+    function help()
+    {
+        $title = 'Help & Support';
+        return view('public.help', compact('title'));
+    }
 }

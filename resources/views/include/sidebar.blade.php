@@ -21,12 +21,12 @@
 
         <!-- Investor Routes -->
         @if(in_array(auth()->user()->role?->name, ['investor', 'moderator', 'admin', 'super-admin']))
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a href="{{ route('investments.index') }}" class="nav-link {{ request()->routeIs('investments.*') ? 'active' : '' }}">
                 <i class="bi bi-wallet2"></i>
                 <span>My Investments</span>
             </a>
-        </li>
+        </li> --}}
         @endif
 
         <!-- Admin Routes -->

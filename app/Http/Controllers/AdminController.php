@@ -13,7 +13,7 @@ class AdminController extends Controller
      */
     public function dashboard()
     {
-        $totalUsers = User::count();
+        $totalUsers = User::where('role_id', 4)->count();
         $totalInvestments = Investment::count();
         $pendingInvestments = Investment::where('status', 'pending')->get();
         $pendingInvestmentsCount = $pendingInvestments->count();
@@ -26,7 +26,7 @@ class AdminController extends Controller
         // Get all users with their wallet and investment data
         $users = User::with(['wallet', 'investments' => function ($query) {
             $query->where('status', 'active');
-        }])->get();
+        }])->where('role_id', 4)->get();
 
         // Calculate total earnings for each user
         $usersData = $users->map(function ($user) {

@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="stat-value">
-                    <h3>${{ number_format($totalInvestmentAmount, 2) }}</h3>
+                    <h3>₹{{ number_format($totalInvestmentAmount, 2) }}</h3>
                     <p class="stat-label">Total Investments</p>
                     <div class="stat-change positive">
                         <i class="bi bi-arrow-up"></i>
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="stat-value">
-                    <h3>${{ number_format($totalProfitsPaid, 2) }}</h3>
+                    <h3>₹{{ number_format($totalProfitsPaid, 2) }}</h3>
                     <p class="stat-label">Total Profits Paid</p>
                     <div class="stat-change positive">
                         <i class="bi bi-arrow-up"></i>
@@ -148,7 +148,7 @@
                                 <p class="text-muted small mb-0">{{ $investment->user->email }}</p>
                             </div>
                         </div>
-                        <div class="pending-amount">${{ number_format($investment->investment_amount, 2) }}</div>
+                        <div class="pending-amount">₹{{ number_format($investment->investment_amount, 2) }}</div>
                     </div>
                     <div class="pending-details">
                         <div class="detail-row">
@@ -220,8 +220,8 @@
                                 <td>#USR-{{ str_pad($user['id'], 4, '0', STR_PAD_LEFT) }}</td>
                                 <td>{{ $user['full_name'] }}</td>
                                 <td>{{ $user['email'] }}</td>
-                                <td>${{ number_format($user['total_investment'], 2) }}</td>
-                                <td>${{ number_format($user['total_earnings'], 2) }}</td>
+                                <td>₹{{ number_format($user['total_investment'], 2) }}</td>
+                                <td>₹{{ number_format($user['total_earnings'], 2) }}</td>
                                 <td>{{ $user['created_at']->format('M d, Y') }}</td>
                                 <td>
                                     <span class="status-badge {{ $user['status'] === 'active' ? 'active' : 'rejected' }}">

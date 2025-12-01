@@ -5,7 +5,7 @@
         <!-- Top Bar -->
         <div class="top-bar">
             <div class="welcome-text">
-                <h2>Welcome Back, John!</h2>
+                <h2>Welcome Back, {{ $user->full_name }}!</h2>
                 <p>Here's what's happening with your investments today</p>
             </div>
             <div class="user-profile">
@@ -21,7 +21,7 @@
                     </span>
                 </a>
 
-                <div class="user-avatar">JD</div>
+                <div class="user-avatar">{{ strtoupper(substr($user->full_name, 0, 1)) }}{{ strtoupper(substr(explode(' ', $user->full_name)[1] ?? '', 0, 1)) }}</div>
             </div>
         </div>
 
@@ -34,11 +34,11 @@
                     </div>
                 </div>
                 <div class="stat-value">
-                    <h3>$45,280</h3>
+                    <h3>₹{{ number_format($totalInvestment, 2) }}</h3>
                     <p class="stat-label">Total Investment</p>
                     <div class="stat-change positive">
                         <i class="bi bi-arrow-up"></i>
-                        <span>+12.5% from last month</span>
+                        <span>Active investments</span>
                     </div>
                 </div>
             </div>
@@ -50,11 +50,11 @@
                     </div>
                 </div>
                 <div class="stat-value">
-                    <h3>$4,892</h3>
+                    <h3>₹{{ number_format($totalEarnings, 2) }}</h3>
                     <p class="stat-label">Total Earnings</p>
                     <div class="stat-change positive">
                         <i class="bi bi-arrow-up"></i>
-                        <span>+8.3% this week</span>
+                        <span>Lifetime earnings</span>
                     </div>
                 </div>
             </div>
@@ -66,11 +66,11 @@
                     </div>
                 </div>
                 <div class="stat-value">
-                    <h3>$452</h3>
+                    <h3>₹{{ number_format($todaysProfit, 2) }}</h3>
                     <p class="stat-label">Today's Profit</p>
                     <div class="stat-change positive">
                         <i class="bi bi-arrow-up"></i>
-                        <span>1% daily return</span>
+                        <span>Earned today</span>
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="stat-value">
-                    <h3>2</h3>
+                    <h3>{{ $pendingApprovalsCount }}</h3>
                     <p class="stat-label">Pending Approvals</p>
                     <div class="stat-change">
                         <i class="bi bi-dash"></i>
@@ -137,46 +137,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>#TXN-001234</td>
-                            <td>Nov 20, 2025</td>
-                            <td>$5,000</td>
-                            <td>Investment</td>
-                            <td><span class="status-badge approved">Approved</span></td>
-                            <td><button class="btn btn-sm btn-outline-primary">View</button></td>
-                        </tr>
-                        <tr>
-                            <td>#TXN-001235</td>
-                            <td>Nov 19, 2025</td>
-                            <td>$50</td>
-                            <td>Profit</td>
-                            <td><span class="status-badge approved">Approved</span></td>
-                            <td><button class="btn btn-sm btn-outline-primary">View</button></td>
-                        </tr>
-                        <tr>
-                            <td>#TXN-001236</td>
-                            <td>Nov 18, 2025</td>
-                            <td>$3,000</td>
-                            <td>Investment</td>
-                            <td><span class="status-badge pending">Pending</span></td>
-                            <td><button class="btn btn-sm btn-outline-primary">View</button></td>
-                        </tr>
-                        <tr>
-                            <td>#TXN-001237</td>
-                            <td>Nov 17, 2025</td>
-                            <td>$45</td>
-                            <td>Profit</td>
-                            <td><span class="status-badge approved">Approved</span></td>
-                            <td><button class="btn btn-sm btn-outline-primary">View</button></td>
-                        </tr>
-                        <tr>
-                            <td>#TXN-001238</td>
-                            <td>Nov 16, 2025</td>
-                            <td>$2,000</td>
-                            <td>Investment</td>
-                            <td><span class="status-badge rejected">Rejected</span></td>
-                            <td><button class="btn btn-sm btn-outline-primary">View</button></td>
-                        </tr>
+                        @forelse($recentTransactions as $transaction)
+                            <tr>
+                                <td>#{{ strtoupper($transaction->type) }}-{{ str_pad($transaction->id, 6, '0', STR_PAD_LEFT) }}</td>
+                                <td>{{ $transaction->created_at->format('M d, Y') }}</td>
+                                <td>₹{{ number_format($transaction->amount, 2) }}</td>
+                                <td>{{ ucfirst($transaction->type) }}</td>
+                                <td>
+                                    <span class="status-badge {{ $transaction->status }}">
+                                        {{ ucfirst($transaction->status) }}
+                                    </span>
+                                </td>
+                                <td><button class="btn btn-sm btn-outline-primary">View</button></td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="6" style="text-align: center; padding: 20px;">
+                                    No transactions found
+                                </td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
@@ -194,7 +174,7 @@
                 <div class="modal-body">
                     <form id="investmentForm">
                         <div class="form-group">
-                            <label class="form-label">Investment Amount ($)</label>
+                            <label class="form-label">Investment Amount (₹)</label>
                             <input type="number" class="form-control" placeholder="Enter amount" required>
                         </div>
 
