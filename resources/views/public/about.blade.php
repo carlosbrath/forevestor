@@ -7,7 +7,7 @@
 <section class="hero-section d-flex">
     <div class="w-100 blank-dv"></div>
 
-    <div class="d-flex flex-column align-items-center gap-3">
+    <div class="d-flex flex-column align-items-center pt-5 pt-md-0 gap-3">
         <!-- Row 1 - Badge -->
         <div class="d-flex align-items-center star-card gap-2">
             <i class="bi bi-award-fill" style="color: var(--color-primary); font-size: 1rem;"></i>

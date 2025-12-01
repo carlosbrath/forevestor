@@ -7,7 +7,7 @@
 <section class="hero-section d-flex">
     <div class="w-100 blank-dv"></div>
 
-    <div class="d-flex flex-column align-items-center gap-3">
+    <div class="d-flex flex-column align-items-center pt-5 pt-md-0 gap-3">
         <!-- Row 1 - Badge -->
         <div class="d-flex align-items-center star-card gap-2">
             <i class="bi bi-headset" style="color: var(--color-primary); font-size: 1rem;"></i>
@@ -49,7 +49,8 @@
                         <i class="bi bi-person-plus"></i>
                     </div>
                     <h3 class="feature-title">Getting Started</h3>
-                    <p class="feature-desc">Learn how to create your account and make your first investment with Forevestor.</p>
+                    <p class="feature-desc">Learn how to create your account and make your first investment with
+                        Forevestor.</p>
                 </div>
             </div>
 
@@ -60,7 +61,8 @@
                         <i class="bi bi-cash-coin"></i>
                     </div>
                     <h3 class="feature-title">Making Investments</h3>
-                    <p class="feature-desc">Understand investment plans, minimum amounts, and how to submit your investment.</p>
+                    <p class="feature-desc">Understand investment plans, minimum amounts, and how to submit your
+                        investment.</p>
                 </div>
             </div>
 
@@ -71,7 +73,8 @@
                         <i class="bi bi-graph-up"></i>
                     </div>
                     <h3 class="feature-title">Profits & Returns</h3>
-                    <p class="feature-desc">Learn about profit distribution, withdrawal process, and tracking your earnings.</p>
+                    <p class="feature-desc">Learn about profit distribution, withdrawal process, and tracking your
+                        earnings.</p>
                 </div>
             </div>
 
@@ -93,7 +96,8 @@
                         <i class="bi bi-file-earmark-text"></i>
                     </div>
                     <h3 class="feature-title">Account Management</h3>
-                    <p class="feature-desc">Manage your profile, update details, and track your investment portfolio.</p>
+                    <p class="feature-desc">Manage your profile, update details, and track your investment portfolio.
+                    </p>
                 </div>
             </div>
 
@@ -121,121 +125,153 @@
 
         <div class="accordion" id="faqAccordion">
             <!-- FAQ 1 -->
-            <div class="accordion-item" style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); margin-bottom: 1rem; border-radius: 8px;">
+            <div class="accordion-item"
+                style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); margin-bottom: 1rem; border-radius: 8px;">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1"
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq1"
                         style="background: var(--color-bg-secondary); color: var(--color-text-primary); font-weight: 600;">
                         How do I create an account on Forevestor?
                     </button>
                 </h2>
                 <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                     <div class="accordion-body" style="color: var(--color-text-secondary);">
-                        Creating an account is simple! Click on the "Get Started" or "Sign Up" button on our homepage. Fill in your details including full name, email, phone number, and create a secure password. Agree to our terms and conditions, and you're ready to start investing.
+                        Creating an account is simple! Click on the "Get Started" or "Sign Up" button on our homepage.
+                        Fill in your details including full name, email, phone number, and create a secure password.
+                        Agree to our terms and conditions, and you're ready to start investing.
                     </div>
                 </div>
             </div>
 
             <!-- FAQ 2 -->
-            <div class="accordion-item" style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); margin-bottom: 1rem; border-radius: 8px;">
+            <div class="accordion-item"
+                style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); margin-bottom: 1rem; border-radius: 8px;">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2"
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq2"
                         style="background: var(--color-bg-secondary); color: var(--color-text-primary); font-weight: 600;">
                         What is the minimum investment amount?
                     </button>
                 </h2>
                 <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                     <div class="accordion-body" style="color: var(--color-text-secondary);">
-                        The minimum investment amount varies by plan. Our Basic Plan starts at ₹10,000, while our Premium and Elite plans have higher minimum investments. Check our <a href="{{ route('plans') }}" style="color: var(--color-primary);">Investment Plans</a> page for detailed information.
+                        The minimum investment amount varies by plan. Our Basic Plan starts at ₹10,000, while our
+                        Premium and Elite plans have higher minimum investments. Check our <a
+                            href="{{ route('plans') }}" style="color: var(--color-primary);">Investment Plans</a> page
+                        for detailed information.
                     </div>
                 </div>
             </div>
 
             <!-- FAQ 3 -->
-            <div class="accordion-item" style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); margin-bottom: 1rem; border-radius: 8px;">
+            <div class="accordion-item"
+                style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); margin-bottom: 1rem; border-radius: 8px;">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3"
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq3"
                         style="background: var(--color-bg-secondary); color: var(--color-text-primary); font-weight: 600;">
                         How long does it take for my investment to be approved?
                     </button>
                 </h2>
                 <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                     <div class="accordion-body" style="color: var(--color-text-secondary);">
-                        Once you submit your investment with the payment proof, our team typically reviews and approves it within 24-48 hours. You'll receive an email notification once your investment is approved and active.
+                        Once you submit your investment with the payment proof, our team typically reviews and approves
+                        it within 24-48 hours. You'll receive an email notification once your investment is approved and
+                        active.
                     </div>
                 </div>
             </div>
 
             <!-- FAQ 4 -->
-            <div class="accordion-item" style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); margin-bottom: 1rem; border-radius: 8px;">
+            <div class="accordion-item"
+                style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); margin-bottom: 1rem; border-radius: 8px;">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4"
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq4"
                         style="background: var(--color-bg-secondary); color: var(--color-text-primary); font-weight: 600;">
                         When and how will I receive my profits?
                     </button>
                 </h2>
                 <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                     <div class="accordion-body" style="color: var(--color-text-secondary);">
-                        Profits are calculated daily and credited to your wallet. The profit percentage depends on your investment plan. You can view your daily profits in your dashboard and request a withdrawal at any time.
+                        Profits are calculated daily and credited to your wallet. The profit percentage depends on your
+                        investment plan. You can view your daily profits in your dashboard and request a withdrawal at
+                        any time.
                     </div>
                 </div>
             </div>
 
             <!-- FAQ 5 -->
-            <div class="accordion-item" style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); margin-bottom: 1rem; border-radius: 8px;">
+            <div class="accordion-item"
+                style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); margin-bottom: 1rem; border-radius: 8px;">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5"
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq5"
                         style="background: var(--color-bg-secondary); color: var(--color-text-primary); font-weight: 600;">
                         Can I withdraw my investment before the maturity period?
                     </button>
                 </h2>
                 <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                     <div class="accordion-body" style="color: var(--color-text-secondary);">
-                        Each investment plan has specific terms regarding early withdrawal. Please review the terms and conditions of your selected plan or contact our support team for assistance with early withdrawal requests.
+                        Each investment plan has specific terms regarding early withdrawal. Please review the terms and
+                        conditions of your selected plan or contact our support team for assistance with early
+                        withdrawal requests.
                     </div>
                 </div>
             </div>
 
             <!-- FAQ 6 -->
-            <div class="accordion-item" style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); margin-bottom: 1rem; border-radius: 8px;">
+            <div class="accordion-item"
+                style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); margin-bottom: 1rem; border-radius: 8px;">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6"
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq6"
                         style="background: var(--color-bg-secondary); color: var(--color-text-primary); font-weight: 600;">
                         Is my money safe with Forevestor?
                     </button>
                 </h2>
                 <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                     <div class="accordion-body" style="color: var(--color-text-secondary);">
-                        Yes! We prioritize the security of your investments. All transactions are verified through secure bank receipts, and we maintain strict security protocols. Your personal and financial information is encrypted and protected with bank-level security measures.
+                        Yes! We prioritize the security of your investments. All transactions are verified through
+                        secure bank receipts, and we maintain strict security protocols. Your personal and financial
+                        information is encrypted and protected with bank-level security measures.
                     </div>
                 </div>
             </div>
 
             <!-- FAQ 7 -->
-            <div class="accordion-item" style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); margin-bottom: 1rem; border-radius: 8px;">
+            <div class="accordion-item"
+                style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); margin-bottom: 1rem; border-radius: 8px;">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7"
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq7"
                         style="background: var(--color-bg-secondary); color: var(--color-text-primary); font-weight: 600;">
                         What payment methods do you accept?
                     </button>
                 </h2>
                 <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                     <div class="accordion-body" style="color: var(--color-text-secondary);">
-                        We accept bank transfers and UPI payments. When making an investment, you'll need to upload a payment proof (bank receipt or UPI transaction screenshot) for verification purposes.
+                        We accept bank transfers and UPI payments. When making an investment, you'll need to upload a
+                        payment proof (bank receipt or UPI transaction screenshot) for verification purposes.
                     </div>
                 </div>
             </div>
 
             <!-- FAQ 8 -->
-            <div class="accordion-item" style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); margin-bottom: 1rem; border-radius: 8px;">
+            <div class="accordion-item"
+                style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); margin-bottom: 1rem; border-radius: 8px;">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8"
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq8"
                         style="background: var(--color-bg-secondary); color: var(--color-text-primary); font-weight: 600;">
                         How can I track my investment performance?
                     </button>
                 </h2>
                 <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                     <div class="accordion-body" style="color: var(--color-text-secondary);">
-                        Your dashboard provides real-time information about your investments, daily profits, total earnings, and transaction history. You can log in anytime to view detailed analytics and performance metrics.
+                        Your dashboard provides real-time information about your investments, daily profits, total
+                        earnings, and transaction history. You can log in anytime to view detailed analytics and
+                        performance metrics.
                     </div>
                 </div>
             </div>
@@ -288,7 +324,8 @@
                     </div>
                     <h3 class="feature-title">WhatsApp Support</h3>
                     <p class="feature-desc">Chat with us on WhatsApp for quick assistance</p>
-                    <a href="https://wa.me/911234567890" target="_blank" style="color: var(--color-primary); font-weight: 600;">
+                    <a href="https://wa.me/911234567890" target="_blank"
+                        style="color: var(--color-primary); font-weight: 600;">
                         Start Chat
                     </a>
                 </div>
