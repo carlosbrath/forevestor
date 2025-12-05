@@ -40,7 +40,6 @@
                         <li><a href="#">Daily Profit</a></li>
                         <li><a href="#">Secure Verification</a></li>
                         <li><a href="#">User Dashboard</a></li>
-                        <li><a href="#">Admin Panel</a></li>
                     </ul>
                 </div>
             </div>

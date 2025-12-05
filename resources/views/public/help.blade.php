@@ -322,7 +322,7 @@
                     <div class="feature-icon">
                         <i class="bi bi-whatsapp"></i>
                     </div>
-                    <h3 class="feature-title">WhatsApp Support</h3>
+                    <h3 class="feature-title">Contact & Support</h3>
                     <p class="feature-desc">Chat with us on WhatsApp for quick assistance</p>
                     <a href="https://wa.me/911234567890" target="_blank"
                         style="color: var(--color-primary); font-weight: 600;">
