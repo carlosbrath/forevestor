@@ -15,7 +15,7 @@
                   <!-- About -->
                   <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About</a></li>
                   <li class="nav-item"><a class="nav-link" href="{{ route('plans') }}">Investment Plans</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#">Privacy Policy</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{ route('privacy') }}">Privacy Policy</a></li>
                   <li class="nav-item"><a class="nav-link" href="{{ route('help') }}">Help</a></li>
                   <li class="nav-item ms-2">
                       @auth
