@@ -495,6 +495,21 @@
     </div>
 </div>
 
+<!-- LICENSE DOWNLOAD -->
+
+
+<!-- LICENSE DOWNLOAD -->
+<div class="text-center my-5">
+    <h2 class="mb-3" id="license-download">Download Our License</h2>
+    <p class="mb-4">
+        Forevestor is a fully licensed and regulated investment platform. You can download a copy of our official
+        license for your records.
+    </p>
+    <a href="{{ asset('/assets/license/forevestor-license.pdf') }}" download class="btn btn-warning btn-lg">
+        <i class="fas fa-file-download me-2"></i> Download License
+    </a>
+</div>
+
 
 
 @endsection
