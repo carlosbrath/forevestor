@@ -40,4 +40,13 @@ class PublicController extends Controller
         $title = 'Help & Support';
         return view('public.help', compact('title'));
     }
+
+    function privacy()
+    {
+        $title = 'Privacy Policy';
+        return view('public.privacy', compact('title'));
+    }
+    
+    
+    
 }

@@ -23,10 +23,10 @@
                     <h6 class="footer-title">Quick Links</h6>
                     <ul>
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">How It Works</a></li>
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="{{ route('about') }}">Features</a></li>
+                        <li><a href="{{ route('plans') }}">How It Works</a></li>
+                        <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                        <li><a href="{{ route('help') }}">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
@@ -36,11 +36,10 @@
                 <div class="footer-links">
                     <h6 class="footer-title">Products</h6>
                     <ul>
-                        <li><a href="#">Investment Plans</a></li>
-                        <li><a href="#">Daily Profit</a></li>
-                        <li><a href="#">Secure Verification</a></li>
-                        <li><a href="#">User Dashboard</a></li>
-                        <li><a href="#">Admin Panel</a></li>
+                        <li><a href="{{ route('plans') }}">Investment Plans</a></li>
+                        <li><a href="{{ route('plans') }}">Daily Profit</a></li>
+                        <li><a href="{{ route('privacy') }}">Secure Verification</a></li>
+                        <li><a href="{{ route('dashboard') }}">User Dashboard</a></li>
                     </ul>
                 </div>
             </div>
@@ -50,11 +49,11 @@
                 <div class="footer-links">
                     <h6 class="footer-title">Legal & Support</h6>
                     <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">Security</a></li>
+                        <li><a href="{{ route('privacy') }}">Privacy Policy</a></li>
+                        <li><a href="{{ route('privacy') }}">Terms of Service</a></li>
+                        <li><a href="{{ route('help') }}">FAQ</a></li>
+                        <li><a href="{{ route('help') }}">Support</a></li>
+                        <li><a href="{{ route('privacy') }}">Security</a></li>
                     </ul>
                 </div>
             </div>
