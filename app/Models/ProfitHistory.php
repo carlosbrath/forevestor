@@ -12,6 +12,7 @@ class ProfitHistory extends Model
 
     protected $fillable = [
         'user_id',
+        'wallet_id',
         'investment_id',
         'profit_amount',
         'percentage',
@@ -27,6 +28,11 @@ class ProfitHistory extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function wallet(): BelongsTo
+    {
+        return $this->belongsTo(Wallet::class);
     }
 
     public function investment(): BelongsTo

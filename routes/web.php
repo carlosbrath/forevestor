@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
     // Investor routes
     Route::middleware('role:investor,moderator,admin,super-admin')->group(function () {
         Route::resource('investments', InvestmentController::class);
+        Route::post('/compound', [InvestmentController::class, 'compound'])->name('compound');
     });
 
     // Admin routes (admin, moderator, super-admin)

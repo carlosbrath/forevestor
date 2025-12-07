@@ -6,21 +6,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Transaction extends Model
+class Compound extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'user_id',
         'wallet_id',
-        'type',
-        'amount',
-        'related_id',
+        'transaction_id',
+        'compound_amount',
         'remark',
     ];
 
     protected $casts = [
-        'amount' => 'decimal:2',
+        'compound_amount' => 'decimal:2',
     ];
 
     public function user(): BelongsTo
@@ -33,13 +32,8 @@ class Transaction extends Model
         return $this->belongsTo(Wallet::class);
     }
 
-    public function relatedInvestment()
+    public function transaction(): BelongsTo
     {
-        return $this->belongsTo(Investment::class, 'related_id');
-    }
-
-    public function relatedWithdrawal()
-    {
-        return $this->belongsTo(Withdrawal::class, 'related_id');
+        return $this->belongsTo(Transaction::class);
     }
 }

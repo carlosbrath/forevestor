@@ -15,6 +15,10 @@ return Application::configure(basePath: dirname(__DIR__))
             'role' => \App\Http\Middleware\CheckRole::class,
         ]);
     })
+    ->withSchedule(function ($schedule): void {
+        // Distribute daily profits at midnight every day
+        $schedule->command('profit:distribute')->daily();
+    })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();

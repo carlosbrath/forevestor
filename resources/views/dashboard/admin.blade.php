@@ -1,132 +1,89 @@
 @extends('layouts.master')
 @section('content')
-    <!-- Main Content -->
     <main class="main-content" id="mainContent">
-        <!-- Top Bar -->
-        <div class="top-bar">
-            <div class="welcome-text">
-                <h2>Admin Dashboard</h2>
-                <p>System Overview & Management</p>
-            </div>
-            <div class="user-profile">
-                <div class="top-actions">
-                    <button class="action-btn">
-                        <i class="bi bi-gear"></i>
-                    </button>
-                </div>
-                <div class="user-avatar">AD</div>
-            </div>
-        </div>
-
         <!-- Stats Cards -->
         <div class="stats-grid">
-            <div class="stat-card primary">
-                <div class="stat-header">
-                    <div class="stat-icon primary">
-                        <i class="bi bi-people"></i>
+            <div class="stat-card">
+                <div class="stat-content">
+                    <div class="stat-header">
+                        <span class="stat-label">Total Users</span>
+                        <div class="stat-icon primary">
+                            <i class="bi bi-people"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="stat-value">
-                    <h3>{{ $totalUsers }}</h3>
-                    <p class="stat-label">Total Users</p>
-                    <div class="stat-change positive">
+                    <h3 class="stat-value">{{ $totalUsers }}</h3>
+                    <div class="stat-meta">
                         <i class="bi bi-arrow-up"></i>
-                        <span>Active Users</span>
+                        <span class="stat-change positive">Active Users</span>
                     </div>
                 </div>
             </div>
 
-            <div class="stat-card success">
-                <div class="stat-header">
-                    <div class="stat-icon success">
-                        <i class="bi bi-cash-stack"></i>
+            <div class="stat-card">
+                <div class="stat-content">
+                    <div class="stat-header">
+                        <span class="stat-label">Total Investments</span>
+                        <div class="stat-icon success">
+                            <i class="bi bi-cash-stack"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="stat-value">
-                    <h3>₹{{ number_format($totalInvestmentAmount, 2) }}</h3>
-                    <p class="stat-label">Total Investments</p>
-                    <div class="stat-change positive">
+                    <h3 class="stat-value">₹{{ number_format($totalInvestmentAmount, 2) }}</h3>
+                    <div class="stat-meta">
                         <i class="bi bi-arrow-up"></i>
-                        <span>{{ $totalInvestments }} total</span>
+                        <span class="stat-change positive">{{ $totalInvestments }} total</span>
                     </div>
                 </div>
             </div>
 
-            <div class="stat-card warning">
-                <div class="stat-header">
-                    <div class="stat-icon warning">
-                        <i class="bi bi-hourglass-split"></i>
+            <div class="stat-card">
+                <div class="stat-content">
+                    <div class="stat-header">
+                        <span class="stat-label">Pending Approvals</span>
+                        <div class="stat-icon warning">
+                            <i class="bi bi-hourglass-split"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="stat-value">
-                    <h3>{{ $pendingInvestmentsCount }}</h3>
-                    <p class="stat-label">Pending Approvals</p>
-                    <div class="stat-change">
-                        <i class="bi bi-dash"></i>
-                        <span>Requires attention</span>
+                    <h3 class="stat-value">{{ $pendingInvestmentsCount }}</h3>
+                    <div class="stat-meta">
+                        <i class="bi bi-info-circle"></i>
+                        <span class="stat-change">Requires attention</span>
                     </div>
                 </div>
             </div>
 
-            <div class="stat-card danger">
+            {{-- <div class="stat-card">
+            <div class="stat-content">
                 <div class="stat-header">
+                    <span class="stat-label">Total Profits Paid</span>
                     <div class="stat-icon danger">
                         <i class="bi bi-graph-up-arrow"></i>
                     </div>
                 </div>
-                <div class="stat-value">
-                    <h3>₹{{ number_format($totalProfitsPaid, 2) }}</h3>
-                    <p class="stat-label">Total Profits Paid</p>
-                    <div class="stat-change positive">
-                        <i class="bi bi-arrow-up"></i>
-                        <span>Distributed</span>
-                    </div>
+                <h3 class="stat-value">₹{{ number_format($totalProfitsPaid, 2) }}</h3>
+                <div class="stat-meta">
+                    <i class="bi bi-arrow-up"></i>
+                    <span class="stat-change positive">Distributed</span>
                 </div>
             </div>
+        </div> --}}
 
-            <div class="stat-card info">
-                <div class="stat-header">
-                    <div class="stat-icon info">
-                        <i class="bi bi-check-circle"></i>
-                    </div>
-                </div>
-                <div class="stat-value">
-                    <h3>{{ $activeInvestments }}</h3>
-                    <p class="stat-label">Active Investments</p>
-                    <div class="stat-change positive">
-                        <i class="bi bi-arrow-up"></i>
-                        <span>Currently Active</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Charts Row -->
-        <div class="row mb-4">
-            <div class="col-lg-8 mb-4">
-                <div class="chart-container">
-                    <div class="chart-header">
-                        <h3>Investment & Profit Trends</h3>
-                        <div class="chart-filter">
-                            <button class="filter-btn active">7D</button>
-                            <button class="filter-btn">1M</button>
-                            <button class="filter-btn">3M</button>
-                            <button class="filter-btn">1Y</button>
+            <div class="stat-card">
+                <div class="stat-content">
+                    <div class="stat-header">
+                        <span class="stat-label">Active Investments</span>
+                        <div class="stat-icon info">
+                            <i class="bi bi-check-circle"></i>
                         </div>
                     </div>
-                    <canvas id="trendsChart"></canvas>
-                </div>
-            </div>
-
-            <div class="col-lg-4 mb-4">
-                <div class="chart-container">
-                    <div class="chart-header">
-                        <h3>Investment Status</h3>
+                    <h3 class="stat-value">{{ $activeInvestments }}</h3>
+                    <div class="stat-meta">
+                        <i class="bi bi-arrow-up"></i>
+                        <span class="stat-change positive">Currently Active</span>
                     </div>
-                    <canvas id="statusChart"></canvas>
                 </div>
             </div>
         </div>
+
 
         <!-- Pending Approvals Section -->
         <div class="table-container mb-4">
@@ -164,18 +121,21 @@
                             <span>{{ ucfirst($investment->payment_method) }}</span>
                         </div>
                     </div>
-                    @if($investment->payment_proof_url)
-                        <img src="{{ Storage::url($investment->payment_proof) }}" alt="Receipt" class="receipt-preview" onclick="viewReceipt(this.src)">
+                    @if ($investment->payment_proof_url)
+                        <img src="{{ Storage::url($investment->payment_proof) }}" alt="Receipt" class="receipt-preview"
+                            onclick="viewReceipt(this.src)">
                     @endif
                     <div class="action-buttons">
-                        <form method="POST" action="{{ route('admin.approve-investment', $investment) }}" style="display: inline;">
+                        <form method="POST" action="{{ route('admin.approve-investment', $investment) }}"
+                            style="display: inline;">
                             @csrf
                             <button type="submit" class="btn-approve">
                                 <i class="bi bi-check-circle"></i>
                                 Approve
                             </button>
                         </form>
-                        <form method="POST" action="{{ route('admin.reject-investment', $investment) }}" style="display: inline;">
+                        <form method="POST" action="{{ route('admin.reject-investment', $investment) }}"
+                            style="display: inline;">
                             @csrf
                             <button type="submit" class="btn-reject" onclick="return confirm('Are you sure?')">
                                 <i class="bi bi-x-circle"></i>

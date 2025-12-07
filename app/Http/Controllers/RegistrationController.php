@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Role;
+use App\Models\Wallet;
 
 class RegistrationController extends Controller
 {
@@ -74,6 +75,17 @@ class RegistrationController extends Controller
             $user->status = 'active'; // Account pending verification
             $user->role_id = $investorRole?->id; // Assign investor role
             $user->save();
+
+            // Create wallet for the new user
+            Wallet::create([
+                'user_id' => $user->id,
+                'wallet_id' => Wallet::generateWalletId(),
+                'total_deposit' => 0,
+                'total_investment' => 0,
+                'total_profit' => 0,
+                'total_withdrawal' => 0,
+                'withdrawable_amount' => 0,
+            ]);
 
             // Redirect to login with success message
             return redirect()->route('login')->with('success', 'Account created successfully! Please log in with your credentials.');

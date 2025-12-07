@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Investment;
 use App\Models\User;
+use App\Models\Transaction;
+use App\Models\Wallet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -118,10 +121,70 @@ class AdminController extends Controller
      */
     public function approveInvestment(Investment $investment)
     {
-        $investment->update(['status' => 'approved']);
+        // Check if already approved
+        if ($investment->status === 'approved') {
+            return redirect()->route('admin.dashboard')
+                ->with('warning', 'This investment has already been approved.');
+        }
 
-        return redirect()->route('admin.dashboard')
-            ->with('success', 'Investment approved successfully!');
+        // Check if not pending
+        if ($investment->status !== 'pending') {
+            return redirect()->route('admin.dashboard')
+                ->with('error', 'Only pending investments can be approved.');
+        }
+
+        try {
+            DB::beginTransaction();
+
+            // Update investment status and set approval timestamp
+            $investment->update([
+                'status' => 'approved',
+                'approved_at' => now(),
+                'profit_cycle_start' => now(),
+            ]);
+
+            // Get or create user's wallet
+            $wallet = Wallet::where('user_id', $investment->user_id)->first();
+
+            if (!$wallet) {
+                // If wallet doesn't exist, create one (safety fallback)
+                $wallet = Wallet::create([
+                    'user_id' => $investment->user_id,
+                    'wallet_id' => Wallet::generateWalletId(),
+                    'total_deposit' => $investment->investment_amount,
+                    'total_investment' => $investment->investment_amount,
+                    'total_profit' => 0,
+                    'total_withdrawal' => 0,
+                    'withdrawable_amount' => 0,
+                ]);
+            } else {
+                $wallet->increment('total_deposit', $investment->investment_amount);
+                $wallet->increment('total_investment', $investment->investment_amount);
+            }
+
+            // Update existing transaction remark and add wallet_id
+            $transaction = Transaction::where('related_id', $investment->id)
+                ->where('type', 'deposit')
+                ->first();
+
+            if ($transaction) {
+                $transaction->update([
+                    'wallet_id' => $wallet->id,
+                    'remark' => 'Investment approved by admin - Transaction ID: ' . $investment->transaction_id,
+                ]);
+            }
+
+            DB::commit();
+
+            return redirect()->route('admin.dashboard')
+                ->with('success', 'Investment of ₹' . number_format($investment->investment_amount, 2) . ' for ' . $investment->user->full_name . ' has been approved successfully!');
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            return redirect()->route('admin.dashboard')
+                ->with('error', 'An error occurred while approving the investment. Please try again.');
+        }
     }
 
     /**
@@ -129,10 +192,51 @@ class AdminController extends Controller
      */
     public function rejectInvestment(Investment $investment)
     {
-        $investment->update(['status' => 'rejected']);
+        // Check if already rejected
+        if ($investment->status === 'rejected') {
+            return redirect()->route('admin.dashboard')
+                ->with('warning', 'This investment has already been rejected.');
+        }
 
-        return redirect()->route('admin.investments')
-            ->with('success', 'Investment rejected successfully!');
+        // Check if already approved
+        if ($investment->status === 'approved') {
+            return redirect()->route('admin.dashboard')
+                ->with('error', 'Cannot reject an approved investment.');
+        }
+
+        // Check if not pending
+        if ($investment->status !== 'pending') {
+            return redirect()->route('admin.dashboard')
+                ->with('error', 'Only pending investments can be rejected.');
+        }
+
+        try {
+            DB::beginTransaction();
+
+            $investment->update(['status' => 'rejected']);
+
+            // Update existing transaction remark
+            $transaction = Transaction::where('related_id', $investment->id)
+                ->where('type', 'deposit')
+                ->first();
+
+            if ($transaction) {
+                $transaction->update([
+                    'remark' => 'Investment rejected by admin - Transaction ID: ' . $investment->transaction_id,
+                ]);
+            }
+
+            DB::commit();
+
+            return redirect()->route('admin.dashboard')
+                ->with('success', 'Investment of ₹' . number_format($investment->investment_amount, 2) . ' for ' . $investment->user->full_name . ' has been rejected.');
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            return redirect()->route('admin.dashboard')
+                ->with('error', 'An error occurred while rejecting the investment. Please try again.');
+        }
     }
 
     /**

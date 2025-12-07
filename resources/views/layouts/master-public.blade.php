@@ -21,6 +21,7 @@
 <body>
     @include('include.navbar-public')
     @yield('content')
+    @include('include.toast')
     @include('include.footer-public')
     @include('include.foot-public')
     @stack('scripts')

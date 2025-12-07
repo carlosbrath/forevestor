@@ -24,7 +24,11 @@
         <i class="bi bi-list"></i>
     </button>
     @include('include.sidebar')
+
+    @include('include.top-bar')
     @yield('content')
+
+    @include('include.toast')
     @include('include.foot')
     @stack('scripts')
 </body>

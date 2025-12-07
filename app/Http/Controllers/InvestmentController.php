@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Compound;
 use App\Models\Investment;
 use App\Models\Transaction;
 use App\Models\Wallet;
@@ -16,11 +17,44 @@ class InvestmentController extends Controller
      */
     public function index()
     {
-        $investments = Investment::where('user_id', auth()->id())
-            ->orderBy('created_at', 'desc')
-            ->paginate(10);
+        $user = auth()->user();
 
-        return view('investments.index', compact('investments'));
+        // Check if user is admin, moderator, or super-admin
+        $isAdmin = in_array($user->role->slug, ['admin', 'moderator', 'super-admin']);
+
+        if ($isAdmin) {
+            // Admin view: Show all investments with user info
+            $investments = Investment::with(['user', 'user.wallet'])
+                ->orderBy('created_at', 'desc')
+                ->paginate(15);
+
+            // Calculate stats for admins
+            $stats = [
+                'total_investments' => Investment::count(),
+                'total_amount' => Investment::sum('investment_amount'),
+                'pending_count' => Investment::where('status', 'pending')->count(),
+                'approved_count' => Investment::where('status', 'approved')->count(),
+                'rejected_count' => Investment::where('status', 'rejected')->count(),
+            ];
+        } else {
+            // Investor view: Show only their investments
+            $investments = Investment::where('user_id', auth()->id())
+                ->with('profitHistories')
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
+
+            // Calculate stats for investors
+            $stats = [
+                'total_investments' => $investments->total(),
+                'total_amount' => Investment::where('user_id', auth()->id())->sum('investment_amount'),
+                'pending_count' => Investment::where('user_id', auth()->id())->where('status', 'pending')->count(),
+                'approved_count' => Investment::where('user_id', auth()->id())->where('status', 'approved')->count(),
+            ];
+        }
+
+        $title = $isAdmin ? 'All Investments - Admin' : 'My Investments';
+
+        return view('investments.index', compact('investments', 'isAdmin', 'stats', 'title'));
     }
 
     /**
@@ -50,7 +84,7 @@ class InvestmentController extends Controller
         if ($validated['paid_amount'] < $validated['investment_amount']) {
             return back()
                 ->withInput()
-                ->withErrors(['paid_amount' => 'Paid amount must be equal to or greater than investment amount.']);
+                ->with('error', 'Paid amount must be equal to or greater than investment amount.');
         }
 
         // Check for duplicate transactions (prevent double submission)
@@ -61,13 +95,13 @@ class InvestmentController extends Controller
         if ($existingInvestment) {
             return back()
                 ->withInput()
-                ->withErrors(['transaction_id' => 'This transaction ID has already been submitted.']);
+                ->with('warning', 'This transaction ID has already been submitted.');
         }
 
         try {
             DB::beginTransaction();
 
-            // Create the investment record
+            // Create the investment record as pending (no transaction or wallet update until admin approves)
             $investment = Investment::create([
                 'user_id' => auth()->id(),
                 'investment_amount' => $validated['investment_amount'],
@@ -77,14 +111,12 @@ class InvestmentController extends Controller
                 'transaction_id' => $validated['transaction_id'],
                 'status' => 'pending',
             ]);
-
-            // Create a transaction record for deposit
             Transaction::create([
-                'user_id' => auth()->id(),
+                'user_id' => $investment->user_id,
                 'type' => 'deposit',
-                'amount' => $validated['investment_amount'],
+                'amount' => $investment->investment_amount,
                 'related_id' => $investment->id,
-                'remark' => $validated['notes'] ?? null,
+                'remark' => 'Investment added wating for approval - Transaction ID: ' . $investment->transaction_id,
             ]);
 
             DB::commit();
@@ -102,7 +134,7 @@ class InvestmentController extends Controller
 
             return back()
                 ->withInput()
-                ->withErrors(['error' => 'An error occurred while processing your investment. Please try again.']);
+                ->with('error', 'An error occurred while processing your investment. Please try again.');
         }
     }
 
@@ -140,83 +172,6 @@ class InvestmentController extends Controller
         }
 
         return view('investments.edit', compact('investment'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Investment $investment)
-    {
-        // Ensure user can only update their own investments
-        if ($investment->user_id !== auth()->id()) {
-            abort(403, 'Unauthorized');
-        }
-
-        // Only allow updating if status is pending
-        if ($investment->status !== 'pending') {
-            return redirect()->route('investments.show', $investment->id)
-                ->withErrors(['error' => 'Only pending investments can be edited.']);
-        }
-
-        $validated = $request->validate([
-            'investment_amount' => 'required|numeric|min:500|max:9999999.99',
-            'paid_amount' => 'required|numeric|min:500|max:9999999.99',
-            'payment_method' => 'required|in:upi_gpay,bhim_upi,imps,neft_rtgs,net_banking',
-            'upi_or_bank' => 'required|string|max:150|min:3',
-            'transaction_id' => 'required|string|max:150|min:5',
-            'payment_screenshot' => 'nullable|image|mimes:jpeg,jpg,png|max:5120',
-            'transaction_date_time' => 'required|date_format:Y-m-d\TH:i|before_or_equal:now',
-            'investment_plan' => 'nullable|in:1_percent_daily,1_5_percent_daily,30_day_roi,45_day_fixed',
-            'notes' => 'nullable|string|max:500',
-        ]);
-
-        if ($validated['paid_amount'] < $validated['investment_amount']) {
-            return back()
-                ->withInput()
-                ->withErrors(['paid_amount' => 'Paid amount must be equal to or greater than investment amount.']);
-        }
-
-        try {
-            DB::beginTransaction();
-
-            // Handle new screenshot if provided
-            $paymentProof = $investment->payment_proof;
-            if ($request->hasFile('payment_screenshot')) {
-                // Delete old proof
-                Storage::disk('public')->delete($investment->payment_proof);
-                // Store new proof
-                $paymentProof = $this->storePaymentProof($request->file('payment_screenshot'));
-            }
-
-            // Update investment
-            $investment->update([
-                'investment_amount' => $validated['investment_amount'],
-                'paid_amount' => $validated['paid_amount'],
-                'payment_method' => $validated['payment_method'],
-                'upi_id_or_bank' => $validated['upi_or_bank'],
-                'transaction_id' => $validated['transaction_id'],
-                'payment_proof' => $paymentProof,
-                'transaction_datetime' => $validated['transaction_date_time'],
-            ]);
-
-            // Update related transaction
-            $investment->transactions()->where('type', 'deposit')->first()->update([
-                'amount' => $validated['investment_amount'],
-                'remark' => $validated['notes'] ?? null,
-            ]);
-
-            DB::commit();
-
-            return redirect()->route('investments.show', $investment->id)
-                ->with('success', 'Investment updated successfully!');
-
-        } catch (\Exception $e) {
-            DB::rollBack();
-
-            return back()
-                ->withInput()
-                ->withErrors(['error' => 'An error occurred while updating your investment. Please try again.']);
-        }
     }
 
     /**
@@ -259,6 +214,65 @@ class InvestmentController extends Controller
 
             return back()
                 ->withErrors(['error' => 'An error occurred while deleting your investment. Please try again.']);
+        }
+    }
+
+    /**
+     * Process compound request
+     */
+    public function compound(Request $request)
+    {
+        $validated = $request->validate([
+            'compound_amount' => 'required|numeric|min:1|max:9999999.99',
+        ]);
+
+        $user = auth()->user();
+        $wallet = $user->wallet;
+
+        if (!$wallet) {
+            return back()->with('error', 'Wallet not found.');
+        }
+
+        // Check if compound amount is less than or equal to total profit
+        if ($validated['compound_amount'] > $wallet->total_profit) {
+            return back()->with('error', 'Compound amount cannot exceed your total profit of ₹' . number_format($wallet->total_profit, 2));
+        }
+
+        try {
+            DB::beginTransaction();
+
+            // Create transaction record for compound
+            $transaction = Transaction::create([
+                'user_id' => $user->id,
+                'wallet_id' => $wallet->id,
+                'type' => 'deposit',
+                'amount' => $validated['compound_amount'],
+                'remark' => 'Compound - Profit reinvested as investment',
+            ]);
+
+            // Create compound record
+            Compound::create([
+                'user_id' => $user->id,
+                'wallet_id' => $wallet->id,
+                'transaction_id' => $transaction->id,
+                'compound_amount' => $validated['compound_amount'],
+                'remark' => 'Profit compounded to investment',
+            ]);
+
+            // Update wallet - increase total_investment and total_deposit, decrease total_profit
+            $wallet->total_investment += $validated['compound_amount'];
+            $wallet->total_deposit += $validated['compound_amount'];
+            $wallet->total_profit -= $validated['compound_amount'];
+            $wallet->withdrawable_amount -= $validated['compound_amount'];
+            $wallet->save();
+
+            DB::commit();
+
+            return back()->with('success', 'Successfully compounded ₹' . number_format($validated['compound_amount'], 2) . ' to your investment!');
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->with('error', 'An error occurred while processing your compound request. Please try again.');
         }
     }
 

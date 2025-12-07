@@ -1,35 +1,8 @@
 @extends('layouts.master')
 @section('content')
-    <!-- Main Content -->
     <main class="main-content" id="mainContent">
-        <!-- Top Bar -->
-        <div class="top-bar">
-            <div class="welcome-text">
-                <h2>Investment Details</h2>
-                <p>View your investment information and profit history</p>
-            </div>
-            <div class="user-profile">
-                <a href="{{ route('home') }}" class="btn btn-outline-secondary me-2" style="padding: 0.5rem 1rem; border-radius: 8px; display: inline-flex; align-items: center; gap: 0.5rem;">
-                    <i class="bi bi-house-door"></i>
-                    Visit Website
-                </a>
-                <a href="{{ route('investments.index') }}" class="btn btn-outline-primary me-2" style="padding: 0.5rem 1rem; border-radius: 8px; display: inline-flex; align-items: center; gap: 0.5rem;">
-                    <i class="bi bi-arrow-left"></i>
-                    Back to List
-                </a>
-                <a href="{{ route('investments.create') }}" class="invest-now-btn">
-                    <span class="invest-btn-border"></span>
-                    <span class="invest-btn-text">
-                        <i class="bi bi-lightning-charge-fill"></i>
-                        Invest Now
-                    </span>
-                </a>
-                <div class="user-avatar">{{ strtoupper(substr(auth()->user()->full_name, 0, 2)) }}</div>
-            </div>
-        </div>
-
         <!-- Status Alert -->
-        @if($investment->status === 'pending')
+        @if ($investment->status === 'pending')
             <div class="alert alert-warning alert-dismissible fade show mb-4" role="alert" style="border-radius: 12px;">
                 <i class="bi bi-exclamation-triangle-fill me-2"></i>
                 <strong>Pending Approval</strong> Your investment is waiting for admin verification.
@@ -86,7 +59,7 @@
                                 </div>
                             </div>
 
-                            @if($investment->approved_at)
+                            @if ($investment->approved_at)
                                 <div class="col-md-6">
                                     <div class="detail-item">
                                         <label class="detail-label">
@@ -97,7 +70,7 @@
                                 </div>
                             @endif
 
-                            @if($investment->profit_cycle_start)
+                            @if ($investment->profit_cycle_start)
                                 <div class="col-md-6">
                                     <div class="detail-item">
                                         <label class="detail-label">
@@ -113,7 +86,9 @@
                                     <label class="detail-label">
                                         <i class="bi bi-credit-card me-2"></i>Payment Method
                                     </label>
-                                    <p class="detail-value">{{ ucfirst(str_replace('_', ' ', $investment->payment_method)) }}</p>
+                                    <p class="detail-value">
+                                        {{ ucfirst(str_replace('_', ' ', $investment->payment_method)) }}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +102,7 @@
                         <h3>Quick Actions</h3>
                     </div>
                     <div class="p-4">
-                        @if($investment->status === 'pending')
+                        @if ($investment->status === 'pending')
                             <div class="d-grid gap-3">
                                 <a href="{{ route('investments.edit', $investment->id) }}" class="btn btn-primary" style="border-radius: 10px; padding: 12px;">
                                     <i class="bi bi-pencil me-2"></i> Edit Investment
@@ -162,5 +137,4 @@
             </div> --}}
         </div>
     </main>
-
 @endsection
