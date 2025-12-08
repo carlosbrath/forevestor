@@ -79,7 +79,7 @@
 
 
     <!-- Total Withdrawn Banner -->
-    <div class="withdrawn-banner rounded-lg mb-4 mt-4 p-4 d-flex justify-content-between align-items-center">
+    <div class="withdrawn-banner mt-4 mb-3">
         <div class="withdrawn-content ">
             <div class="withdrawn-info">
                 <h4>Total Withdrawn</h4>
