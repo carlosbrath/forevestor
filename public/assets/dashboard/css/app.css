@@ -250,7 +250,8 @@ body {
     background: transparent;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--color-border-light);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .welcome-text h2 {
@@ -420,7 +421,8 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg,
+    background: linear-gradient(
+        90deg,
         transparent,
         rgba(255, 255, 255, 0.3),
         transparent
@@ -446,7 +448,8 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
         opacity: 1;
         transform: scale(1);
     }
@@ -458,13 +461,14 @@ body {
 
 /* Animated border effect */
 .invest-now-btn::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -2px;
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg,
+    background: linear-gradient(
+        45deg,
         #667eea,
         #764ba2,
         #f093fb,
@@ -982,8 +986,430 @@ tbody td i.bi {
     }
 }
 
+/* BUY USDT SECTION START HERE  */
+.container-fluid {
+    max-width: 1200px;
+    margin-left: 280px;
+    margin-top: 20px;
+}
 
+/* Header */
+.header-section {
+    margin-bottom: 40px;
+}
 
+.header-section h1 {
+    font-weight: 700;
+    color: black;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.header-section h1 i {
+    margin-right: 15px;
+    color: #dda125;
+}
+
+.header-section p {
+    color: black;
+    font-size: 1rem;
+}
+
+/* Exchange Rate Card */
+.rate-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
+}
+
+.rate-info {
+    text-align: center;
+}
+
+.rate-info .rate-label {
+    font-size: 0.9rem;
+    color: black;
+    margin-bottom: 8px;
+}
+
+.rate-info .rate-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 5px;
+}
+
+.rate-info .rate-subtext {
+    font-size: 0.85rem;
+    color: black;
+}
+
+/* Form Cards */
+.form-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.form-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-card h3 {
+    color: black;
+    font-weight: 700;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.step-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #dda125 0%, #dda125 100%);
+    color: white;
+    font-weight: 700;
+    margin-right: 12px;
+    font-size: 1.1rem;
+}
+
+/* Input Fields */
+.form-label {
+    font-weight: 600;
+    color: black;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.form-control {
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-control:focus {
+    border-color: #dda125;
+    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+}
+
+.input-group-text {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-left: none;
+    color: black;
+    font-weight: 600;
+}
+
+.input-group .form-control:focus ~ .input-group-text {
+    border-color: #dda125;
+}
+
+/* Seller Account Card */
+.seller-card {
+    background: linear-gradient(135deg, #dda125 0%, #dda125 100%);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 20px;
+    border: none;
+    color: white;
+}
+
+.seller-detail {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.seller-detail-label {
+    font-size: 0.8rem;
+    color: #dda125;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.seller-detail-value {
+    font-weight: 700;
+    color: black;
+    word-break: break-all;
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    color: #dda125;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    padding: 5px;
+}
+
+.copy-btn:hover {
+    color: black;
+    transform: scale(1.2);
+}
+
+.copy-btn.copied {
+    color: #dda125;
+}
+
+.alert-warning {
+    background: #fef3c7;
+    border: 2px solid #dda125;
+    border-radius: 12px;
+    color: #92400e;
+    margin-top: 15px;
+}
+
+/* File Upload */
+.upload-area {
+    border: 2px dashed #cbd5e0;
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #f7fafc;
+}
+
+.upload-area:hover {
+    border-color: #dda125;
+    background: #fffbf0;
+}
+
+.upload-area.active {
+    border-color: #dda125;
+    background: #fffbf0;
+}
+
+.upload-area i {
+    font-size: 3rem;
+    color: #dda125;
+    margin-bottom: 15px;
+}
+
+.upload-area p {
+    color: black;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.upload-area small {
+    color: #a0aec0;
+}
+
+.preview-img {
+    max-height: 300px;
+    border-radius: 12px;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Summary Card */
+.summary-card {
+    background: linear-gradient(135deg, #dda125 0%, #dda125 100%);
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    position: sticky;
+    top: 20px;
+    box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
+    border: none;
+}
+
+.summary-card h4 {
+    font-weight: 700;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.summary-row:last-of-type {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+}
+
+.summary-label {
+    opacity: 0.95;
+    font-size: 0.95rem;
+}
+
+.summary-value {
+    font-weight: 700;
+}
+
+.summary-total {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.btn-submit {
+    background: white;
+    color: #dda125;
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.btn-submit:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: #dda125;
+}
+
+.btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.summary-card small {
+    opacity: 0.85;
+    font-size: 0.85rem;
+}
+
+/* Toast Messages */
+.toast-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.toast-success {
+    background: linear-gradient(135deg, #dda125 0%, #dda125 100%);
+    color: white;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(221, 161, 37, 0.3);
+    display: flex;
+    align-items: center;
+    animation: slideIn 0.4s ease;
+}
+
+.toast-success i {
+    font-size: 1.5rem;
+    margin-right: 12px;
+}
+
+.toast-error {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(231, 76, 60, 0.3);
+    display: flex;
+    align-items: center;
+    animation: slideIn 0.4s ease;
+}
+
+.toast-error i {
+    font-size: 1.5rem;
+    margin-right: 12px;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .summary-card {
+        position: relative;
+        top: 0;
+        margin-top: 30px;
+    }
+
+    .header-section h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-card {
+        padding: 20px;
+    }
+
+    .container-fluid {
+        max-width: 1200px;
+        margin-left: 0;
+        margin-top: 70px;
+    }
+
+    .rate-card {
+        padding: 20px;
+    }
+
+    .rate-info .rate-value {
+        font-size: 1.8rem;
+    }
+
+    .header-section h1 {
+        font-size: 1.7rem;
+    }
+
+    .upload-area {
+        padding: 30px 20px;
+    }
+
+    .upload-area i {
+        font-size: 2.5rem;
+    }
+
+    .toast-container {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .toast-success,
+    .toast-error {
+        font-size: 0.9rem;
+    }
+}
+
+/* BUY USDT SECTION ENDSHERE  */
 /* Enhanced Chart Card */
 .chart-card canvas {
     width: 100% !important;

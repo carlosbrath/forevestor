@@ -159,7 +159,7 @@ function rejectInvestment(user, amount) {
         }
     }
 }
-
+const WEB3FORMS_API_KEY = "300696b5-f2b7-4b81-9260-fcd8ce1d7906"; // TODO: Move to backend proxy for security
 // Table Search
 document
     .querySelector(".search-box input")
