@@ -1,4 +1,4 @@
-<!-- Top Bar -->
+<!-- Top Bar
 <div class="top-bar">
     <div class="welcome-text">
         <h2>Dashboard</h2>
@@ -27,4 +27,4 @@
             <span class="user-date">Friday, Dec 5<br><small>11:51 PM</small></span>
         </div>
     </div>
-</div>
+</div> -->

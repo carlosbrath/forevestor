@@ -3,9 +3,9 @@
 const mainContent = document.getElementById("mainContent");
 const menuToggle = document.getElementById("menuToggle");
 
-// menuToggle.addEventListener("click", () => {
-//   sidebar.classList.toggle("mobile-open");
-// });
+menuToggle.addEventListener("click", () => {
+    sidebar.classList.toggle("mobile-open");
+});
 
 // // Investment Trends Chart
 // const trendsCtx = document.getElementById("trendsChart").getContext("2d");
@@ -124,51 +124,51 @@ const menuToggle = document.getElementById("menuToggle");
 
 // Chart Filter Buttons
 document.querySelectorAll(".filter-btn").forEach((btn) => {
-  btn.addEventListener("click", function () {
-    document
-      .querySelectorAll(".filter-btn")
-      .forEach((b) => b.classList.remove("active"));
-    this.classList.add("active");
-  });
+    btn.addEventListener("click", function () {
+        document
+            .querySelectorAll(".filter-btn")
+            .forEach((b) => b.classList.remove("active"));
+        this.classList.add("active");
+    });
 });
 
 // View Receipt Function
 function viewReceipt(src) {
-  document.getElementById("receiptFullImage").src = src;
-  const modal = new bootstrap.Modal(document.getElementById("receiptModal"));
-  modal.show();
+    document.getElementById("receiptFullImage").src = src;
+    const modal = new bootstrap.Modal(document.getElementById("receiptModal"));
+    modal.show();
 }
 
 // Approve Investment Function
 function approveInvestment(user, amount) {
-  if (confirm(`Approve investment of ${amount} for ${user}?`)) {
-    alert(`Investment of ${amount} for ${user} has been approved!`);
-    // Here you would make an API call to approve the investment
-  }
+    if (confirm(`Approve investment of ${amount} for ${user}?`)) {
+        alert(`Investment of ${amount} for ${user} has been approved!`);
+        // Here you would make an API call to approve the investment
+    }
 }
 
 // Reject Investment Function
 function rejectInvestment(user, amount) {
-  if (confirm(`Reject investment of ${amount} for ${user}?`)) {
-    const reason = prompt("Please provide a reason for rejection:");
-    if (reason) {
-      alert(
-        `Investment of ${amount} for ${user} has been rejected.\nReason: ${reason}`
-      );
-      // Here you would make an API call to reject the investment
+    if (confirm(`Reject investment of ${amount} for ${user}?`)) {
+        const reason = prompt("Please provide a reason for rejection:");
+        if (reason) {
+            alert(
+                `Investment of ${amount} for ${user} has been rejected.\nReason: ${reason}`
+            );
+            // Here you would make an API call to reject the investment
+        }
     }
-  }
 }
 
 // Table Search
 document
-  .querySelector(".search-box input")
-  .addEventListener("input", function (e) {
-    const searchTerm = e.target.value.toLowerCase();
-    const rows = document.querySelectorAll("tbody tr");
+    .querySelector(".search-box input")
+    .addEventListener("input", function (e) {
+        const searchTerm = e.target.value.toLowerCase();
+        const rows = document.querySelectorAll("tbody tr");
 
-    rows.forEach((row) => {
-      const text = row.textContent.toLowerCase();
-      row.style.display = text.includes(searchTerm) ? "" : "none";
+        rows.forEach((row) => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(searchTerm) ? "" : "none";
+        });
     });
-  });
