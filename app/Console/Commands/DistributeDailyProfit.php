@@ -54,7 +54,7 @@ class DistributeDailyProfit extends Command
                 // Check if profit already distributed today for this user
                 $todayProfit = ProfitHistory::where('user_id', $wallet->user_id)
                     ->whereNull('investment_id') // Wallet-based profit has null investment_id
-                    ->whereDate('profit_date', today())
+                    ->whereDate('profit_date', today()->subDay())
                     ->first();
 
                 if ($todayProfit) {
@@ -77,7 +77,7 @@ class DistributeDailyProfit extends Command
                     'investment_id' => null, // Null indicates wallet-based profit
                     'profit_amount' => $profitData['amount'],
                     'percentage' => $profitData['percentage'],
-                    'profit_date' => today(),
+                    'profit_date' => today()->subDay(),
                 ]);
 
                 // Create transaction record
@@ -111,7 +111,7 @@ class DistributeDailyProfit extends Command
             Log::info('Daily profit distribution completed', [
                 'wallets_processed' => $walletsProcessed,
                 'total_profit' => $totalProfitDistributed,
-                'date' => today()->toDateString(),
+                'date' => today()->subDay()->toDateString(),
             ]);
 
         } catch (\Exception $e) {
