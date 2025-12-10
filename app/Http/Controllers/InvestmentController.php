@@ -20,41 +20,24 @@ class InvestmentController extends Controller
         $user = auth()->user();
 
         // Check if user is admin, moderator, or super-admin
-        $isAdmin = in_array($user->role->slug, ['admin', 'moderator', 'super-admin']);
+        $isAdmin = in_array($user->role->name, ['admin', 'moderator', 'super-admin']);
 
         if ($isAdmin) {
             // Admin view: Show all investments with user info
             $investments = Investment::with(['user', 'user.wallet'])
                 ->orderBy('created_at', 'desc')
                 ->paginate(15);
-
-            // Calculate stats for admins
-            $stats = [
-                'total_investments' => Investment::count(),
-                'total_amount' => Investment::sum('investment_amount'),
-                'pending_count' => Investment::where('status', 'pending')->count(),
-                'approved_count' => Investment::where('status', 'approved')->count(),
-                'rejected_count' => Investment::where('status', 'rejected')->count(),
-            ];
         } else {
             // Investor view: Show only their investments
             $investments = Investment::where('user_id', auth()->id())
                 ->with('profitHistories')
                 ->orderBy('created_at', 'desc')
                 ->paginate(10);
-
-            // Calculate stats for investors
-            $stats = [
-                'total_investments' => $investments->total(),
-                'total_amount' => Investment::where('user_id', auth()->id())->sum('investment_amount'),
-                'pending_count' => Investment::where('user_id', auth()->id())->where('status', 'pending')->count(),
-                'approved_count' => Investment::where('user_id', auth()->id())->where('status', 'approved')->count(),
-            ];
         }
 
         $title = $isAdmin ? 'All Investments - Admin' : 'My Investments';
 
-        return view('investments.index', compact('investments', 'isAdmin', 'stats', 'title'));
+        return view('investments.index', compact('investments', 'isAdmin', 'title'));
     }
 
     /**
@@ -143,16 +126,21 @@ class InvestmentController extends Controller
      */
     public function show(Investment $investment)
     {
-        // Ensure user can only view their own investments
-        if ($investment->user_id !== auth()->id()) {
+        $user = auth()->user();
+        $isAdmin = in_array($user->role->name, ['admin', 'moderator', 'super-admin']);
+
+        // If not admin, ensure user can only view their own investments
+        if (!$isAdmin && $investment->user_id !== $user->id) {
             abort(403, 'Unauthorized');
         }
+
+        $investment->load(['user', 'user.wallet', 'profitHistories']);
 
         $profitHistories = $investment->profitHistories()
             ->orderBy('profit_date', 'desc')
             ->get();
 
-        return view('investments.show', compact('investment', 'profitHistories'));
+        return view('investments.show', compact('investment', 'profitHistories', 'isAdmin'));
     }
 
     /**

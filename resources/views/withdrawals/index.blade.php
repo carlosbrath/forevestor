@@ -1,78 +1,85 @@
 @extends('layouts.master')
 @section('content')
     <main class="main-content" id="mainContent">
-        <!-- Investments Table -->
+        <!-- Withdrawals Table -->
         <div class="table-container">
             <div class="table-header">
                 <h3>
                     <i class="bi bi-list-ul me-2"></i>
-                    {{ $isAdmin ? 'All Investments' : 'My Investments' }}
+                    {{ $isAdmin ? 'All Withdrawals' : 'My Withdrawals' }}
                 </h3>
-                <div class="search-box">
-                    <i class="bi bi-search"></i>
-                    <input type="text" placeholder="Search investments..." id="investmentSearch">
+                <div class="d-flex gap-2 align-items-center">
+                    @if(!$isAdmin)
+                        <a href="{{ route('withdrawals.create') }}" class="btn btn-primary">
+                            <i class="bi bi-plus-circle me-2"></i>Request Withdrawal
+                        </a>
+                    @endif
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search withdrawals..." id="withdrawalSearch">
+                    </div>
                 </div>
             </div>
             <div class="table-responsive">
                 <table>
                     <thead>
                         <tr>
-                            <th>Investment ID</th>
+                            <th>Withdrawal ID</th>
                             @if($isAdmin)
                                 <th>User</th>
                             @endif
                             <th>Amount</th>
-                            <th>Payment Method</th>
-                            <th>Transaction ID</th>
-                            <th>Date</th>
+                            <th>Method</th>
+                            <th>UPI/Bank Details</th>
+                            <th>Requested Date</th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody id="investmentTableBody">
-                        @forelse($investments as $investment)
+                    <tbody id="withdrawalTableBody">
+                        @forelse($withdrawals as $withdrawal)
                             <tr>
-                                <td>#INV-{{ str_pad($investment->id, 4, '0', STR_PAD_LEFT) }}</td>
+                                <td>#WD-{{ str_pad($withdrawal->id, 4, '0', STR_PAD_LEFT) }}</td>
                                 @if($isAdmin)
                                     <td>
                                         <div class="user-info-inline">
                                             <div class="user-avatar-tiny">
-                                                {{ strtoupper(substr($investment->user->full_name, 0, 1)) }}
+                                                {{ strtoupper(substr($withdrawal->user->full_name, 0, 1)) }}
                                             </div>
                                             <div>
-                                                <strong>{{ $investment->user->full_name }}</strong>
-                                                <p class="text-muted small mb-0">{{ $investment->user->email }}</p>
+                                                <strong>{{ $withdrawal->user->full_name }}</strong>
+                                                <p class="text-muted small mb-0">{{ $withdrawal->user->email }}</p>
                                             </div>
                                         </div>
                                     </td>
                                 @endif
                                 <td>
-                                    <strong class="amount-highlight">₹{{ number_format($investment->investment_amount, 2) }}</strong>
+                                    <strong class="amount-highlight">₹{{ number_format($withdrawal->amount, 2) }}</strong>
                                 </td>
                                 <td>
                                     <span class="payment-method-badge">
-                                        <i class="bi bi-credit-card"></i>
-                                        {{ ucwords(str_replace('_', ' ', $investment->payment_method)) }}
+                                        <i class="bi bi-{{ $withdrawal->method === 'upi' ? 'phone' : 'bank' }}"></i>
+                                        {{ ucwords(str_replace('_', ' ', $withdrawal->method)) }}
                                     </span>
                                 </td>
                                 <td>
-                                    <code class="transaction-id">{{ $investment->transaction_id }}</code>
+                                    <code class="transaction-id">{{ $withdrawal->upi_id_or_bank }}</code>
                                 </td>
-                                <td>{{ $investment->created_at->format('M d, Y') }}</td>
+                                <td>{{ $withdrawal->requested_at ? $withdrawal->requested_at->format('M d, Y') : $withdrawal->created_at->format('M d, Y') }}</td>
                                 <td>
-                                    <span class="status-badge {{ $investment->status }}">
-                                        @if($investment->status === 'pending')
+                                    <span class="status-badge {{ $withdrawal->status }}">
+                                        @if($withdrawal->status === 'pending')
                                             <i class="bi bi-clock-history"></i>
-                                        @elseif($investment->status === 'approved')
+                                        @elseif($withdrawal->status === 'paid')
                                             <i class="bi bi-check-circle-fill"></i>
-                                        @elseif($investment->status === 'rejected')
+                                        @elseif($withdrawal->status === 'rejected')
                                             <i class="bi bi-x-circle-fill"></i>
                                         @endif
-                                        {{ ucfirst($investment->status) }}
+                                        {{ ucfirst($withdrawal->status) }}
                                     </span>
                                 </td>
                                 <td>
-                                    <a href="{{ route('investments.show', $investment) }}" class="action-icon" title="View Details">
+                                    <a href="{{ route('withdrawals.show', $withdrawal) }}" class="action-icon" title="View Details">
                                         <i class="bi bi-eye"></i>
                                     </a>
                                 </td>
@@ -81,10 +88,10 @@
                             <tr>
                                 <td colspan="{{ $isAdmin ? '8' : '7' }}" style="text-align: center; padding: 40px;">
                                     <i class="bi bi-inbox" style="font-size: 3rem; color: var(--color-text-muted);"></i>
-                                    <p class="text-muted mt-3">No investments found</p>
+                                    <p class="text-muted mt-3">No withdrawals found</p>
                                     @if(!$isAdmin)
-                                        <a href="{{ route('investments.create') }}" class="btn btn-primary mt-3">
-                                            <i class="bi bi-plus-circle me-2"></i>Make Your First Investment
+                                        <a href="{{ route('withdrawals.create') }}" class="btn btn-primary mt-3">
+                                            <i class="bi bi-plus-circle me-2"></i>Request Your First Withdrawal
                                         </a>
                                     @endif
                                 </td>
@@ -95,9 +102,9 @@
             </div>
 
             <!-- Pagination -->
-            @if($investments->hasPages())
+            @if($withdrawals->hasPages())
                 <div class="pagination-container">
-                    {{ $investments->links() }}
+                    {{ $withdrawals->links() }}
                 </div>
             @endif
         </div>
@@ -176,8 +183,7 @@
             border: 1px solid rgba(255, 193, 7, 0.3);
         }
 
-        .status-badge.approved,
-        .status-badge.active {
+        .status-badge.paid {
             background: rgba(40, 167, 69, 0.15);
             color: #28a745;
             border: 1px solid rgba(40, 167, 69, 0.3);
@@ -256,9 +262,9 @@
     @push('scripts')
     <script>
         // Search functionality
-        document.getElementById('investmentSearch').addEventListener('input', function(e) {
+        document.getElementById('withdrawalSearch').addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
-            const tableRows = document.querySelectorAll('#investmentTableBody tr');
+            const tableRows = document.querySelectorAll('#withdrawalTableBody tr');
 
             tableRows.forEach(row => {
                 const text = row.textContent.toLowerCase();

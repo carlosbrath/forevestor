@@ -167,7 +167,7 @@
                         <i class="bi bi-download"></i>
                         <span>Deposit</span>
                     </a> --}}
-                    <a href="" class="quick-action-btn withdraw">
+                    <a href="{{ route('withdrawals.index') }}" class="quick-action-btn withdraw">
                         <i class="bi bi-upload"></i>
                         <span>Withdraw</span>
                     </a>

@@ -46,7 +46,57 @@ class PublicController extends Controller
         $title = 'Privacy Policy';
         return view('public.privacy', compact('title'));
     }
-    
-    
-    
+
+    function buyUsdt()
+    {
+        $title = 'Buy USDT';
+
+        // Dummy data for USDT packages
+        $packages = [
+            [
+                'name' => 'Starter Package',
+                'usdt_amount' => 100,
+                'inr_amount' => 8450,
+                'bonus' => 0,
+                'features' => [
+                    'Instant delivery',
+                    '0% transaction fee',
+                    'Email support',
+                    'Secure transfer'
+                ]
+            ],
+            [
+                'name' => 'Standard Package',
+                'usdt_amount' => 500,
+                'inr_amount' => 42250,
+                'bonus' => 5,
+                'features' => [
+                    'Priority delivery',
+                    '0% transaction fee',
+                    'Priority support',
+                    'Bonus: 5 USDT extra'
+                ],
+                'popular' => true
+            ],
+            [
+                'name' => 'Premium Package',
+                'usdt_amount' => 1000,
+                'inr_amount' => 84500,
+                'bonus' => 15,
+                'features' => [
+                    'Instant delivery',
+                    '0% transaction fee',
+                    'VIP support 24/7',
+                    'Bonus: 15 USDT extra'
+                ]
+            ]
+        ];
+
+        $currentRate = 84.50; // 1 USDT = ₹84.50
+
+        return view('public.buyusdt', compact('title', 'packages', 'currentRate'));
+    }
+
+
+
 }

@@ -23,6 +23,20 @@
                     <span>Investments</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('withdrawals.index') }}"
+                    class="nav-link {{ request()->routeIs('withdrawals.*') ? 'active' : '' }}">
+                    <i class="bi bi-cash-coin"></i>
+                    <span>Withdrawals</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('buy-usdt') }}"
+                    class="nav-link {{ request()->routeIs('buy-usdt') ? 'active' : '' }}">
+                    <i class="bi bi-currency-exchange"></i>
+                    <span>Buy USDT</span>
+                </a>
+            </li>
             {{-- <li class="nav-item">
                 <a href="#" class="nav-link {{ request()->routeIs('trading') ? 'active' : '' }}">
             <i class="bi bi-graph-up"></i>

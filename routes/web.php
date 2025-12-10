@@ -6,6 +6,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InvestmentController;
+use App\Http\Controllers\WithdrawalController;
 use App\Http\Controllers\AdminController;
 
 // Public routes - accessible to everyone (guests and authenticated users)
@@ -38,6 +39,15 @@ Route::middleware('auth')->group(function () {
     Route::middleware('role:investor,moderator,admin,super-admin')->group(function () {
         Route::resource('investments', InvestmentController::class);
         Route::post('/compound', [InvestmentController::class, 'compound'])->name('compound');
+
+        // Withdrawal routes
+        Route::get('/withdrawals', [WithdrawalController::class, 'index'])->name('withdrawals.index');
+        Route::get('/withdrawals/create', [WithdrawalController::class, 'create'])->name('withdrawals.create');
+        Route::post('/withdrawals', [WithdrawalController::class, 'store'])->name('withdrawals.store');
+        Route::get('/withdrawals/{withdrawal}', [WithdrawalController::class, 'show'])->name('withdrawals.show');
+
+        // Buy USDT route
+        Route::get('/buy-usdt', [PublicController::class, 'buyUsdt'])->name('buy-usdt');
     });
 
     // Admin routes (admin, moderator, super-admin)
@@ -50,6 +60,10 @@ Route::middleware('auth')->group(function () {
             Route::get('/investments', [AdminController::class, 'investments'])->name('investments');
             Route::post('/investments/{investment}/approve', [AdminController::class, 'approveInvestment'])->name('approve-investment');
             Route::post('/investments/{investment}/reject', [AdminController::class, 'rejectInvestment'])->name('reject-investment');
+
+            // Withdrawal approval routes
+            Route::post('/withdrawals/{withdrawal}/approve', [WithdrawalController::class, 'approve'])->name('approve-withdrawal');
+            Route::post('/withdrawals/{withdrawal}/reject', [WithdrawalController::class, 'reject'])->name('reject-withdrawal');
         });
     });
 
