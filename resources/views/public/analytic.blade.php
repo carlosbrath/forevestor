@@ -275,7 +275,7 @@
 <!-- TradingView Widget BEGIN -->
 <div class="calender_section">
     <div class="tradingview-widget-container" style="width:100%; height:100%">
-
+        <div class="tradingview-widget-container__widget" style="width:100%; height:100%"></div>
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
         {
             "colorTheme": "light",
