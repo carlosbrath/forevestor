@@ -2,7 +2,7 @@
 @section('title', 'Buy USDT')
 @section('content')
 @push('scripts')
-<div class="container-fluid">
+<div class="container-fluid-buyusdt">
     <!-- Header -->
     <div class="header-section">
         <h1><i class="fas fa-coins"></i>Buy USDT</h1>
