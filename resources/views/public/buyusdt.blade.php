@@ -2,6 +2,7 @@
 @section('title', 'Buy USDT')
 @section('content')
 @push('scripts')
+
 <div class="container-fluid-buyusdt">
     <!-- Header -->
     <div class="header-section">

@@ -100,58 +100,91 @@
             </div>
             <div class="allocation-content">
                 <div class="chart-wrapper">
-                    <canvas id="allocationChart"></canvas>
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container" style="height:100%;width:100%">
+                        <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%">
+                        </div>
+                        <script type="text/javascript"
+                            src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                        {
+                            "allow_symbol_change": true,
+                            "calendar": false,
+                            "details": false,
+                            "hide_side_toolbar": true,
+                            "hide_top_toolbar": true,
+                            "hide_legend": false,
+                            "hide_volume": false,
+                            "hotlist": false,
+                            "interval": "D",
+                            "locale": "en",
+                            "save_image": false,
+                            "style": "1",
+                            "symbol": "NASDAQ:AAPL",
+                            "theme": "light",
+                            "timezone": "Etc/UTC",
+                            "backgroundColor": "#ffffff",
+                            "gridColor": "rgba(242, 242, 242, 0.06)",
+                            "watchlist": [],
+                            "withdateranges": false,
+                            "compareSymbols": [],
+                            "studies": [],
+                            "autosize": true
+                        }
+                        </script>
+                    </div>
+                    <!-- TradingView Widget END -->
                 </div>
                 <div class="allocation-legend">
                     <div class="legend-row">
-                        <div class="legend-item">
+                        <a href="{{ route('analytic') }}" class="legend-item">
                             <span class="legend-dot" style="background: #b8860b;"></span>
                             <span class="legend-name">NYSE Stocks</span>
                             <span class="legend-percentage">25%</span>
-                        </div>
-                        <div class="legend-item">
+                        </a>
+                        <a href="{{ route('analytic') }}" class="legend-item">
                             <span class="legend-dot" style="background: #c9a532;"></span>
                             <span class="legend-name">Crypto Mining</span>
                             <span class="legend-percentage">18%</span>
-                        </div>
+                        </a>
                     </div>
                     <div class="legend-row">
-                        <div class="legend-item">
+                        <a href="{{ route('analytic') }}" class="legend-item">
                             <span class="legend-dot" style="background: #dda125;"></span>
                             <span class="legend-name">Forex</span>
                             <span class="legend-percentage">15%</span>
-                        </div>
-                        <div class="legend-item">
+                        </a>
+                        <a href="{{ route('analytic') }}" class="legend-item">
                             <span class="legend-dot" style="background: #d4a628;"></span>
                             <span class="legend-name">Commodities</span>
                             <span class="legend-percentage">12%</span>
-                        </div>
+                        </a>
                     </div>
                     <div class="legend-row">
-                        <div class="legend-item">
+                        <a href="{{ route('analytic') }}" class="legend-item">
                             <span class="legend-dot" style="background: #9a7510;"></span>
                             <span class="legend-name">Copy Trading</span>
                             <span class="legend-percentage">10%</span>
-                        </div>
-                        <div class="legend-item">
+                        </a>
+                        <a href="{{ route('analytic') }}" class="legend-item">
                             <span class="legend-dot" style="background: #b89520;"></span>
                             <span class="legend-name">Algo Trading</span>
                             <span class="legend-percentage">10%</span>
-                        </div>
+                        </a>
                     </div>
                     <div class="legend-row">
-                        <div class="legend-item">
+                        <a href="{{ route('analytic') }}" class="legend-item">
                             <span class="legend-dot" style="background: #c5a02a;"></span>
                             <span class="legend-name">AI Projects</span>
                             <span class="legend-percentage">5%</span>
-                        </div>
-                        <div class="legend-item">
+                        </a>
+                        <a href="{{ route('analytic') }}" class="legend-item">
                             <span class="legend-dot" style="background: #d0ab35;"></span>
                             <span class="legend-name">Diversified</span>
                             <span class="legend-percentage">5%</span>
-                        </div>
+                        </a>
                     </div>
                 </div>
+
             </div>
         </div>
 

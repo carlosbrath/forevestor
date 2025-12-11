@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function () {
 
         // Buy USDT route
         Route::get('/buy-usdt', [PublicController::class, 'buyUsdt'])->name('buy-usdt');
+        //analytic route
+        Route::get('/analytic', [PublicController::class, 'analytic'])->name('analytic');
     });
 
     // Admin routes (admin, moderator, super-admin)
