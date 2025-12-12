@@ -30,12 +30,12 @@
                     <span>Withdrawals</span>
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a href="{{ route('buy-usdt') }}" class="nav-link {{ request()->routeIs('buy-usdt') ? 'active' : '' }}">
                     <i class="bi bi-currency-exchange"></i>
                     <span>Buy USDT</span>
                 </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a href="{{ route('analytic') }}" class="nav-link {{ request()->routeIs('analytic') ? 'active' : '' }}">
                     <i class="bi bi-graph-up"></i>
