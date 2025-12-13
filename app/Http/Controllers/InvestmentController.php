@@ -250,7 +250,6 @@ class InvestmentController extends Controller
             // Update wallet - increase total_investment and total_deposit, decrease total_profit
             $wallet->total_investment += $validated['compound_amount'];
             $wallet->total_deposit += $validated['compound_amount'];
-            $wallet->total_profit -= $validated['compound_amount'];
             $wallet->withdrawable_amount -= $validated['compound_amount'];
             $wallet->save();
 
@@ -260,6 +259,7 @@ class InvestmentController extends Controller
 
         } catch (\Exception $e) {
             DB::rollBack();
+
             return back()->with('error', 'An error occurred while processing your compound request. Please try again.');
         }
     }

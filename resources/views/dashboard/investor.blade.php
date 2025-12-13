@@ -101,8 +101,8 @@
             <div class="allocation-content">
                 <div class="chart-wrapper">
                     <!-- TradingView Widget BEGIN -->
-                    <div class="tradingview-widget-container" style="height:100%;width:100%">
-                        <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%">
+                    <div class="tradingview-widget-container tradingview-container">
+                        <div class="tradingview-widget-container__widget tradingview-widget">
                         </div>
                         <script type="text/javascript"
                             src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
@@ -137,48 +137,48 @@
                 <div class="allocation-legend">
                     <div class="legend-row">
                         <a href="{{ route('analytic') }}" class="legend-item">
-                            <span class="legend-dot" style="background: #b8860b;"></span>
+                            <span class="legend-dot legend-dot-gold-1"></span>
                             <span class="legend-name">NYSE Stocks</span>
                             <span class="legend-percentage">25%</span>
                         </a>
                         <a href="{{ route('analytic') }}" class="legend-item">
-                            <span class="legend-dot" style="background: #c9a532;"></span>
+                            <span class="legend-dot legend-dot-gold-2"></span>
                             <span class="legend-name">Crypto Mining</span>
                             <span class="legend-percentage">18%</span>
                         </a>
                     </div>
                     <div class="legend-row">
                         <a href="{{ route('analytic') }}" class="legend-item">
-                            <span class="legend-dot" style="background: #dda125;"></span>
+                            <span class="legend-dot legend-dot-gold-3"></span>
                             <span class="legend-name">Forex</span>
                             <span class="legend-percentage">15%</span>
                         </a>
                         <a href="{{ route('analytic') }}" class="legend-item">
-                            <span class="legend-dot" style="background: #d4a628;"></span>
+                            <span class="legend-dot legend-dot-gold-4"></span>
                             <span class="legend-name">Commodities</span>
                             <span class="legend-percentage">12%</span>
                         </a>
                     </div>
                     <div class="legend-row">
                         <a href="{{ route('analytic') }}" class="legend-item">
-                            <span class="legend-dot" style="background: #9a7510;"></span>
+                            <span class="legend-dot legend-dot-gold-5"></span>
                             <span class="legend-name">Copy Trading</span>
                             <span class="legend-percentage">10%</span>
                         </a>
                         <a href="{{ route('analytic') }}" class="legend-item">
-                            <span class="legend-dot" style="background: #b89520;"></span>
+                            <span class="legend-dot legend-dot-gold-6"></span>
                             <span class="legend-name">Algo Trading</span>
                             <span class="legend-percentage">10%</span>
                         </a>
                     </div>
                     <div class="legend-row">
                         <a href="{{ route('analytic') }}" class="legend-item">
-                            <span class="legend-dot" style="background: #c5a02a;"></span>
+                            <span class="legend-dot legend-dot-gold-7"></span>
                             <span class="legend-name">AI Projects</span>
                             <span class="legend-percentage">5%</span>
                         </a>
                         <a href="{{ route('analytic') }}" class="legend-item">
-                            <span class="legend-dot" style="background: #d0ab35;"></span>
+                            <span class="legend-dot legend-dot-gold-8"></span>
                             <span class="legend-name">Diversified</span>
                             <span class="legend-percentage">5%</span>
                         </a>
@@ -263,41 +263,32 @@
 
     <!-- Compounds Section -->
     @if($compounds->count() > 0)
-    <div class="compounds-section" style="margin-top: 2rem;">
-        <div class="card-header"
-            style="background: white; padding: 1.5rem; border-radius: 12px 12px 0 0; border-bottom: 1px solid #e5e7eb;">
-            <h3 style="margin: 0; font-size: 1.25rem; font-weight: 600; color: #1f2937;">Compound History</h3>
+    <div class="table-section">
+        <div class="table-section-header">
+            <h3 class="table-section-title">Compound History</h3>
         </div>
-        <div style="background: white; border-radius: 0 0 12px 12px; overflow: hidden;">
-            <div style="overflow-x: auto;">
-                <table style="width: 100%; border-collapse: collapse;">
+        <div class="table-section-body">
+            <div class="table-wrapper">
+                <table>
                     <thead>
-                        <tr style="background: #f9fafb; border-bottom: 1px solid #e5e7eb;">
-                            <th
-                                style="padding: 1rem; text-align: left; font-size: 0.875rem; font-weight: 600; color: #6b7280;">
-                                #</th>
-                            <th
-                                style="padding: 1rem; text-align: left; font-size: 0.875rem; font-weight: 600; color: #6b7280;">
-                                Amount</th>
-                            <th
-                                style="padding: 1rem; text-align: left; font-size: 0.875rem; font-weight: 600; color: #6b7280;">
-                                Date</th>
-                            <th
-                                style="padding: 1rem; text-align: left; font-size: 0.875rem; font-weight: 600; color: #6b7280;">
-                                Remark</th>
+                        <tr>
+                            <th>#</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Remark</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($compounds as $index => $compound)
-                        <tr style="border-bottom: 1px solid #e5e7eb;">
-                            <td style="padding: 1rem; color: #374151; font-size: 0.875rem;">{{ $index + 1 }}</td>
-                            <td style="padding: 1rem; color: #059669; font-weight: 600; font-size: 0.875rem;">
+                        <tr>
+                            <td class="text-gray">{{ $index + 1 }}</td>
+                            <td class="table-amount-success">
                                 +₹{{ number_format($compound->compound_amount, 2) }}
                             </td>
-                            <td style="padding: 1rem; color: #374151; font-size: 0.875rem;">
+                            <td class="text-gray">
                                 {{ $compound->created_at->format('M d, Y h:i A') }}
                             </td>
-                            <td style="padding: 1rem; color: #6b7280; font-size: 0.875rem;">
+                            <td class="text-gray-light">
                                 {{ $compound->remark ?? 'Profit compounded to investment' }}
                             </td>
                         </tr>
@@ -313,78 +304,64 @@
 <!-- Compound Modal -->
 <div class="modal fade" id="compoundModal" tabindex="-1" aria-labelledby="compoundModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="border-radius: 12px; border: none; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
-            <div class="modal-header" style="border-bottom: 1px solid #e5e7eb; padding: 1.5rem;">
-                <h5 class="modal-title" id="compoundModalLabel" style="font-weight: 600; color: #1f2937;">
-                    <i class="bi bi-arrow-repeat" style="color: #b8860b;"></i> Compound Profit
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="compoundModalLabel">
+                    <i class="bi bi-arrow-repeat text-primary"></i> Compound Profit
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{ route('compound') }}" method="POST">
                 @csrf
-                <div class="modal-body" style="padding: 1.5rem;">
-                    <div
-                        style="background: #fef3c7; border: 1px solid #fbbf24; border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem;">
-                        <div style="display: flex; align-items: start; gap: 0.75rem;">
-                            <i class="bi bi-info-circle" style="color: #d97706; font-size: 1.25rem;"></i>
-                            <div style="flex: 1;">
-                                <p style="margin: 0; color: #78350f; font-size: 0.875rem; line-height: 1.5;">
-                                    <strong>Available Profit:</strong>
-                                    ₹{{ number_format($wallet->total_profit ?? 0, 2) }}
-                                </p>
-                                <p style="margin: 0.5rem 0 0 0; color: #78350f; font-size: 0.875rem;">
-                                    You can compound any amount up to your total profit. The compounded amount will be
-                                    added to your investment.
-                                </p>
-                            </div>
+                <div class="modal-body">
+                    <div class="alert-box alert-box-warning">
+                        <i class="bi bi-info-circle alert-box-icon alert-box-icon-warning"></i>
+                        <div class="alert-box-content">
+                            <p class="alert-box-text alert-box-text-warning">
+                                <strong>Available Profit:</strong>
+                                ₹{{ number_format($wallet->total_profit ?? 0, 2) }}
+                            </p>
+                            <p class="alert-box-text alert-box-text-warning mt-2">
+                                You can compound any amount up to your total profit. The compounded amount will be
+                                added to your investment.
+                            </p>
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="compound_amount" class="form-label"
-                            style="font-weight: 500; color: #374151; margin-bottom: 0.5rem;">
-                            Compound Amount <span style="color: #dc2626;">*</span>
+                        <label for="compound_amount" class="form-label fw-medium text-gray">
+                            Compound Amount <span class="text-danger">*</span>
                         </label>
-                        <div class="input-group">
-                            <span class="input-group-text" style="background: #f9fafb; border-right: 0;">₹</span>
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-text bg-light">₹</span>
                             <input type="number" class="form-control @error('compound_amount') is-invalid @enderror"
                                 id="compound_amount" name="compound_amount" step="0.01" min="1"
-                                max="{{ $wallet->total_profit ?? 0 }}" placeholder="Enter amount to compound" required
-                                style="border-left: 0;">
+                                max="{{ $wallet->total_profit ?? 0 }}" placeholder="Enter amount to compound" required>
                         </div>
                         @error('compound_amount')
-                        <div class="invalid-feedback d-block" style="font-size: 0.875rem;">{{ $message }}</div>
+                        <div class="invalid-feedback d-block">{{ $message }}</div>
                         @enderror
-                        <small class="form-text text-muted"
-                            style="font-size: 0.75rem; margin-top: 0.25rem; display: block;">
+                        <small class="form-text text-muted mt-1">
                             Maximum: ₹{{ number_format($wallet->total_profit ?? 0, 2) }}
                         </small>
                     </div>
 
-                    <div
-                        style="background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 1rem; margin-top: 1rem;">
-                        <div style="display: flex; align-items: start; gap: 0.75rem;">
-                            <i class="bi bi-check-circle" style="color: #16a34a; font-size: 1.25rem;"></i>
-                            <div style="flex: 1;">
-                                <p style="margin: 0; color: #14532d; font-size: 0.875rem; font-weight: 500;">What
-                                    happens next?</p>
-                                <ul
-                                    style="margin: 0.5rem 0 0 0; padding-left: 1.25rem; color: #166534; font-size: 0.875rem; line-height: 1.6;">
-                                    <li>The amount will be deducted from your profit</li>
-                                    <li>It will be added to your total investment</li>
-                                    <li>A transaction record will be created</li>
-                                    <li>You'll see it in your compound history</li>
-                                </ul>
-                            </div>
+                    <div class="alert-box alert-box-success mt-3">
+                        <i class="bi bi-check-circle alert-box-icon alert-box-icon-success"></i>
+                        <div class="alert-box-content">
+                            <p class="alert-box-text alert-box-text-success fw-medium m-0">What happens next?</p>
+                            <ul class="alert-box-list alert-box-list-success">
+                                <li>The amount will be deducted from your profit</li>
+                                <li>It will be added to your total investment</li>
+                                <li>A transaction record will be created</li>
+                                <li>You'll see it in your compound history</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer"
-                    style="border-top: 1px solid #e5e7eb; padding: 1rem 1.5rem; background: #f9fafb;">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                        style="padding: 0.5rem 1rem; border-radius: 6px;">Cancel</button>
-                    <button type="submit" class="btn btn-primary"
-                        style="background: #b8860b; border: none; padding: 0.5rem 1.5rem; border-radius: 6px;">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
                         <i class="bi bi-arrow-repeat"></i> Compound Now
                     </button>
                 </div>

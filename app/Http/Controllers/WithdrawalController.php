@@ -106,10 +106,11 @@ class WithdrawalController extends Controller
         if ($wallet->last_withdrawal_date) {
             $daysSinceLastWithdrawal = now()->diffInDays($wallet->last_withdrawal_date);
             if ($daysSinceLastWithdrawal < 7) {
-                $daysRemaining = 7 - $daysSinceLastWithdrawal;
+                $daysRemaining = ceil(7 - $daysSinceLastWithdrawal);
+                $dayText = $daysRemaining == 1 ? 'day' : 'days';
                 return back()
                     ->withInput()
-                    ->with('error', 'You can only request a withdrawal once a week. Please wait ' . $daysRemaining . ' more day(s).');
+                    ->with('error', "You can only request a withdrawal once a week. Please wait {$daysRemaining} more {$dayText}.");
             }
         }
 
@@ -204,9 +205,9 @@ class WithdrawalController extends Controller
                 'remarks' => 'Approved and paid by ' . $user->full_name,
             ]);
 
-            // Update wallet - deduct from withdrawable_amount and total_profit, add to total_withdrawal
+            // Update wallet - deduct from withdrawable_amount, add to total_withdrawal
+            // Note: total_profit remains unchanged as it represents all-time cumulative profit
             $wallet->withdrawable_amount -= $withdrawal->amount;
-            $wallet->total_profit -= $withdrawal->amount;
             $wallet->total_withdrawal += $withdrawal->amount;
             $wallet->last_withdrawal_date = now();
             $wallet->save();
