@@ -104,7 +104,7 @@ class WithdrawalController extends Controller
 
         // Check if user can request withdrawal (once a week restriction)
         if ($wallet->last_withdrawal_date) {
-            $daysSinceLastWithdrawal = now()->diffInDays($wallet->last_withdrawal_date);
+            $daysSinceLastWithdrawal = $wallet->last_withdrawal_date->diffInDays(now());
             if ($daysSinceLastWithdrawal < 7) {
                 $daysRemaining = ceil(7 - $daysSinceLastWithdrawal);
                 $dayText = $daysRemaining == 1 ? 'day' : 'days';
